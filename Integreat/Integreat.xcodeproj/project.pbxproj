@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		833D18561C09C85F0027D604 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18551C09C85F0027D604 /* main.m */; };
 		833D18591C09C85F0027D604 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18581C09C85F0027D604 /* AppDelegate.m */; };
-		833D185C1C09C85F0027D604 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D185B1C09C85F0027D604 /* ViewController.m */; };
 		833D185F1C09C85F0027D604 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 833D185D1C09C85F0027D604 /* Main.storyboard */; };
 		833D18621C09C85F0027D604 /* Integreat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 833D18601C09C85F0027D604 /* Integreat.xcdatamodeld */; };
 		833D18641C09C85F0027D604 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 833D18631C09C85F0027D604 /* Assets.xcassets */; };
 		833D18671C09C85F0027D604 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 833D18651C09C85F0027D604 /* LaunchScreen.storyboard */; };
+		833D18751C09D9780027D604 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18741C09D9780027D604 /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,13 +21,13 @@
 		833D18551C09C85F0027D604 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		833D18571C09C85F0027D604 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		833D18581C09C85F0027D604 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		833D185A1C09C85F0027D604 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		833D185B1C09C85F0027D604 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		833D185E1C09C85F0027D604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		833D18611C09C85F0027D604 /* Integreat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Integreat.xcdatamodel; sourceTree = "<group>"; };
 		833D18631C09C85F0027D604 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		833D18661C09C85F0027D604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		833D18681C09C85F0027D604 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		833D18731C09D9780027D604 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = viewcontrollers/ViewController.h; sourceTree = "<group>"; };
+		833D18741C09D9780027D604 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = viewcontrollers/ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +63,6 @@
 				833D186E1C09CD630027D604 /* viewcontrollers */,
 				833D18571C09C85F0027D604 /* AppDelegate.h */,
 				833D18581C09C85F0027D604 /* AppDelegate.m */,
-				833D185A1C09C85F0027D604 /* ViewController.h */,
-				833D185B1C09C85F0027D604 /* ViewController.m */,
 				833D185D1C09C85F0027D604 /* Main.storyboard */,
 				833D18631C09C85F0027D604 /* Assets.xcassets */,
 				833D18651C09C85F0027D604 /* LaunchScreen.storyboard */,
@@ -86,6 +84,8 @@
 		833D186E1C09CD630027D604 /* viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
+				833D18731C09D9780027D604 /* ViewController.h */,
+				833D18741C09D9780027D604 /* ViewController.m */,
 			);
 			name = viewcontrollers;
 			sourceTree = "<group>";
@@ -160,9 +160,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				833D185C1C09C85F0027D604 /* ViewController.m in Sources */,
 				833D18621C09C85F0027D604 /* Integreat.xcdatamodeld in Sources */,
 				833D18591C09C85F0027D604 /* AppDelegate.m in Sources */,
+				833D18751C09D9780027D604 /* ViewController.m in Sources */,
 				833D18561C09C85F0027D604 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +312,7 @@
 				833D186D1C09C85F0027D604 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
