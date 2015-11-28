@@ -15,7 +15,18 @@
 		833D18671C09C85F0027D604 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 833D18651C09C85F0027D604 /* LaunchScreen.storyboard */; };
 		833D18751C09D9780027D604 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18741C09D9780027D604 /* ViewController.m */; };
 		A11E26EA1C09E4100012312D /* SlimConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E26E91C09E4100012312D /* SlimConnectionManager.m */; };
+		A11E26F61C09E5F90012312D /* IntegreatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E26F51C09E5F90012312D /* IntegreatTests.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A11E26F81C09E5F90012312D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 833D18491C09C85F0027D604 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 833D18501C09C85F0027D604;
+			remoteInfo = Integreat;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		833D18511C09C85F0027D604 /* Integreat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Integreat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,10 +42,20 @@
 		833D18741C09D9780027D604 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = viewcontrollers/ViewController.m; sourceTree = "<group>"; };
 		A11E26E81C09E4100012312D /* SlimConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlimConnectionManager.h; path = connectionManger/SlimConnectionManager.h; sourceTree = "<group>"; };
 		A11E26E91C09E4100012312D /* SlimConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlimConnectionManager.m; path = connectionManger/SlimConnectionManager.m; sourceTree = "<group>"; };
+		A11E26F31C09E5F90012312D /* IntegreatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegreatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A11E26F51C09E5F90012312D /* IntegreatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntegreatTests.m; sourceTree = "<group>"; };
+		A11E26F71C09E5F90012312D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		833D184E1C09C85F0027D604 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A11E26F01C09E5F90012312D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -48,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				833D18531C09C85F0027D604 /* Integreat */,
+				A11E26F41C09E5F90012312D /* IntegreatTests */,
 				833D18521C09C85F0027D604 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				833D18511C09C85F0027D604 /* Integreat.app */,
+				A11E26F31C09E5F90012312D /* IntegreatTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,6 +126,15 @@
 			name = connectionManager;
 			sourceTree = "<group>";
 		};
+		A11E26F41C09E5F90012312D /* IntegreatTests */ = {
+			isa = PBXGroup;
+			children = (
+				A11E26F51C09E5F90012312D /* IntegreatTests.m */,
+				A11E26F71C09E5F90012312D /* Info.plist */,
+			);
+			path = IntegreatTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,6 +155,24 @@
 			productReference = 833D18511C09C85F0027D604 /* Integreat.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A11E26F21C09E5F90012312D /* IntegreatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A11E26FA1C09E5F90012312D /* Build configuration list for PBXNativeTarget "IntegreatTests" */;
+			buildPhases = (
+				A11E26EF1C09E5F90012312D /* Sources */,
+				A11E26F01C09E5F90012312D /* Frameworks */,
+				A11E26F11C09E5F90012312D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A11E26F91C09E5F90012312D /* PBXTargetDependency */,
+			);
+			name = IntegreatTests;
+			productName = IntegreatTests;
+			productReference = A11E26F31C09E5F90012312D /* IntegreatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -134,6 +184,10 @@
 				TargetAttributes = {
 					833D18501C09C85F0027D604 = {
 						CreatedOnToolsVersion = 7.1.1;
+					};
+					A11E26F21C09E5F90012312D = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = 833D18501C09C85F0027D604;
 					};
 				};
 			};
@@ -151,6 +205,7 @@
 			projectRoot = "";
 			targets = (
 				833D18501C09C85F0027D604 /* Integreat */,
+				A11E26F21C09E5F90012312D /* IntegreatTests */,
 			);
 		};
 /* End PBXProject section */
@@ -163,6 +218,13 @@
 				833D18671C09C85F0027D604 /* LaunchScreen.storyboard in Resources */,
 				833D18641C09C85F0027D604 /* Assets.xcassets in Resources */,
 				833D185F1C09C85F0027D604 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A11E26F11C09E5F90012312D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,7 +243,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A11E26EF1C09E5F90012312D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A11E26F61C09E5F90012312D /* IntegreatTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A11E26F91C09E5F90012312D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 833D18501C09C85F0027D604 /* Integreat */;
+			targetProxy = A11E26F81C09E5F90012312D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		833D185D1C09C85F0027D604 /* Main.storyboard */ = {
@@ -307,6 +385,30 @@
 			};
 			name = Release;
 		};
+		A11E26FB1C09E5F90012312D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = IntegreatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tuerantuer.app.IntegreatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Integreat.app/Integreat";
+			};
+			name = Debug;
+		};
+		A11E26FC1C09E5F90012312D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = IntegreatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tuerantuer.app.IntegreatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Integreat.app/Integreat";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -327,6 +429,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		A11E26FA1C09E5F90012312D /* Build configuration list for PBXNativeTarget "IntegreatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A11E26FB1C09E5F90012312D /* Debug */,
+				A11E26FC1C09E5F90012312D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 

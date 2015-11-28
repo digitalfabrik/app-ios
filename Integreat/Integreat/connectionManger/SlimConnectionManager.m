@@ -39,7 +39,7 @@ NSString* serverURL=@"http://vmkrcmar21.informatik.tu-muenchen.de/wordpress";
 
 -(void)getCities
 {
-    NSString* pagesURL=[NSString stringWithFormat:@"%@/wordpress/wp-json/extensions/v0/multisites/",serverURL];
+    NSString* pagesURL=[NSString stringWithFormat:@"%@/wp-json/extensions/v0/multisites/",serverURL];
     
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithURL:[NSURL URLWithString:pagesURL]
@@ -64,7 +64,7 @@ NSString* serverURL=@"http://vmkrcmar21.informatik.tu-muenchen.de/wordpress";
                                 NSError *error) {
                 NSError *parseErr;
                 id pkg=[NSJSONSerialization JSONObjectWithData:data options:0 error:&parseErr];
-
+                //[self.delegate processCompleted];
                 
             }] resume];
 }
