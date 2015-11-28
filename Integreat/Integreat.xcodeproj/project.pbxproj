@@ -10,23 +10,17 @@
 		833D18561C09C85F0027D604 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18551C09C85F0027D604 /* main.m */; };
 		833D18591C09C85F0027D604 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18581C09C85F0027D604 /* AppDelegate.m */; };
 		833D185F1C09C85F0027D604 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 833D185D1C09C85F0027D604 /* Main.storyboard */; };
-		833D18621C09C85F0027D604 /* Integreat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 833D18601C09C85F0027D604 /* Integreat.xcdatamodeld */; };
 		833D18641C09C85F0027D604 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 833D18631C09C85F0027D604 /* Assets.xcassets */; };
 		833D18671C09C85F0027D604 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 833D18651C09C85F0027D604 /* LaunchScreen.storyboard */; };
+		833D18721C09D8530027D604 /* Integreat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 833D18701C09D8530027D604 /* Integreat.xcdatamodeld */; };
+		833D18BF1C09E25A0027D604 /* Language+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18B41C09E25A0027D604 /* Language+CoreDataProperties.m */; };
+		833D18C01C09E25A0027D604 /* Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18B61C09E25A0027D604 /* Language.m */; };
+		833D18C11C09E25A0027D604 /* Page+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18B81C09E25A0027D604 /* Page+CoreDataProperties.m */; };
+		833D18C21C09E25A0027D604 /* Page.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18BA1C09E25A0027D604 /* Page.m */; };
+		833D18C31C09E25A0027D604 /* Location+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18BC1C09E25A0027D604 /* Location+CoreDataProperties.m */; };
+		833D18C41C09E25A0027D604 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18BE1C09E25A0027D604 /* Location.m */; };
 		833D18751C09D9780027D604 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18741C09D9780027D604 /* ViewController.m */; };
-		A11E26EA1C09E4100012312D /* SlimConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E26E91C09E4100012312D /* SlimConnectionManager.m */; };
-		A11E26F61C09E5F90012312D /* IntegreatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E26F51C09E5F90012312D /* IntegreatTests.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		A11E26F81C09E5F90012312D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 833D18491C09C85F0027D604 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 833D18501C09C85F0027D604;
-			remoteInfo = Integreat;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		833D18511C09C85F0027D604 /* Integreat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Integreat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,28 +28,29 @@
 		833D18571C09C85F0027D604 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		833D18581C09C85F0027D604 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		833D185E1C09C85F0027D604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		833D18611C09C85F0027D604 /* Integreat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Integreat.xcdatamodel; sourceTree = "<group>"; };
 		833D18631C09C85F0027D604 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		833D18661C09C85F0027D604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		833D18681C09C85F0027D604 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		833D18711C09D8530027D604 /* Integreat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Integreat.xcdatamodel; sourceTree = "<group>"; };
+		833D189A1C09E18A0027D604 /* Integreat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Integreat-Bridging-Header.h"; sourceTree = "<group>"; };
+		833D18B31C09E25A0027D604 /* Language+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Language+CoreDataProperties.h"; path = "model/Language+CoreDataProperties.h"; sourceTree = "<group>"; };
+		833D18B41C09E25A0027D604 /* Language+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Language+CoreDataProperties.m"; path = "model/Language+CoreDataProperties.m"; sourceTree = "<group>"; };
+		833D18B51C09E25A0027D604 /* Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Language.h; path = model/Language.h; sourceTree = "<group>"; };
+		833D18B61C09E25A0027D604 /* Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Language.m; path = model/Language.m; sourceTree = "<group>"; };
+		833D18B71C09E25A0027D604 /* Page+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Page+CoreDataProperties.h"; path = "model/Page+CoreDataProperties.h"; sourceTree = "<group>"; };
+		833D18B81C09E25A0027D604 /* Page+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Page+CoreDataProperties.m"; path = "model/Page+CoreDataProperties.m"; sourceTree = "<group>"; };
+		833D18B91C09E25A0027D604 /* Page.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Page.h; path = model/Page.h; sourceTree = "<group>"; };
+		833D18BA1C09E25A0027D604 /* Page.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Page.m; path = model/Page.m; sourceTree = "<group>"; };
+		833D18BB1C09E25A0027D604 /* Location+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Location+CoreDataProperties.h"; path = "model/Location+CoreDataProperties.h"; sourceTree = "<group>"; };
+		833D18BC1C09E25A0027D604 /* Location+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Location+CoreDataProperties.m"; path = "model/Location+CoreDataProperties.m"; sourceTree = "<group>"; };
+		833D18BD1C09E25A0027D604 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = model/Location.h; sourceTree = "<group>"; };
+		833D18BE1C09E25A0027D604 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = model/Location.m; sourceTree = "<group>"; };
 		833D18731C09D9780027D604 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = viewcontrollers/ViewController.h; sourceTree = "<group>"; };
 		833D18741C09D9780027D604 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = viewcontrollers/ViewController.m; sourceTree = "<group>"; };
-		A11E26E81C09E4100012312D /* SlimConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlimConnectionManager.h; path = connectionManger/SlimConnectionManager.h; sourceTree = "<group>"; };
-		A11E26E91C09E4100012312D /* SlimConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlimConnectionManager.m; path = connectionManger/SlimConnectionManager.m; sourceTree = "<group>"; };
-		A11E26F31C09E5F90012312D /* IntegreatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegreatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A11E26F51C09E5F90012312D /* IntegreatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntegreatTests.m; sourceTree = "<group>"; };
-		A11E26F71C09E5F90012312D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		833D184E1C09C85F0027D604 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A11E26F01C09E5F90012312D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -69,7 +64,6 @@
 			isa = PBXGroup;
 			children = (
 				833D18531C09C85F0027D604 /* Integreat */,
-				A11E26F41C09E5F90012312D /* IntegreatTests */,
 				833D18521C09C85F0027D604 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,7 +72,6 @@
 			isa = PBXGroup;
 			children = (
 				833D18511C09C85F0027D604 /* Integreat.app */,
-				A11E26F31C09E5F90012312D /* IntegreatTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,7 +79,7 @@
 		833D18531C09C85F0027D604 /* Integreat */ = {
 			isa = PBXGroup;
 			children = (
-				A11E26E71C09E3FE0012312D /* connectionManager */,
+				833D186F1C09D8480027D604 /* model */,
 				833D186E1C09CD630027D604 /* viewcontrollers */,
 				833D18571C09C85F0027D604 /* AppDelegate.h */,
 				833D18581C09C85F0027D604 /* AppDelegate.m */,
@@ -94,7 +87,7 @@
 				833D18631C09C85F0027D604 /* Assets.xcassets */,
 				833D18651C09C85F0027D604 /* LaunchScreen.storyboard */,
 				833D18681C09C85F0027D604 /* Info.plist */,
-				833D18601C09C85F0027D604 /* Integreat.xcdatamodeld */,
+				833D189A1C09E18A0027D604 /* Integreat-Bridging-Header.h */,
 				833D18541C09C85F0027D604 /* Supporting Files */,
 			);
 			path = Integreat;
@@ -117,22 +110,24 @@
 			name = viewcontrollers;
 			sourceTree = "<group>";
 		};
-		A11E26E71C09E3FE0012312D /* connectionManager */ = {
+		833D186F1C09D8480027D604 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				A11E26E81C09E4100012312D /* SlimConnectionManager.h */,
-				A11E26E91C09E4100012312D /* SlimConnectionManager.m */,
+				833D18701C09D8530027D604 /* Integreat.xcdatamodeld */,
+				833D18B51C09E25A0027D604 /* Language.h */,
+				833D18B61C09E25A0027D604 /* Language.m */,
+				833D18B31C09E25A0027D604 /* Language+CoreDataProperties.h */,
+				833D18B41C09E25A0027D604 /* Language+CoreDataProperties.m */,
+				833D18B91C09E25A0027D604 /* Page.h */,
+				833D18BA1C09E25A0027D604 /* Page.m */,
+				833D18B71C09E25A0027D604 /* Page+CoreDataProperties.h */,
+				833D18B81C09E25A0027D604 /* Page+CoreDataProperties.m */,
+				833D18BD1C09E25A0027D604 /* Location.h */,
+				833D18BE1C09E25A0027D604 /* Location.m */,
+				833D18BB1C09E25A0027D604 /* Location+CoreDataProperties.h */,
+				833D18BC1C09E25A0027D604 /* Location+CoreDataProperties.m */,
 			);
-			name = connectionManager;
-			sourceTree = "<group>";
-		};
-		A11E26F41C09E5F90012312D /* IntegreatTests */ = {
-			isa = PBXGroup;
-			children = (
-				A11E26F51C09E5F90012312D /* IntegreatTests.m */,
-				A11E26F71C09E5F90012312D /* Info.plist */,
-			);
-			path = IntegreatTests;
+			name = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,24 +150,6 @@
 			productReference = 833D18511C09C85F0027D604 /* Integreat.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A11E26F21C09E5F90012312D /* IntegreatTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A11E26FA1C09E5F90012312D /* Build configuration list for PBXNativeTarget "IntegreatTests" */;
-			buildPhases = (
-				A11E26EF1C09E5F90012312D /* Sources */,
-				A11E26F01C09E5F90012312D /* Frameworks */,
-				A11E26F11C09E5F90012312D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A11E26F91C09E5F90012312D /* PBXTargetDependency */,
-			);
-			name = IntegreatTests;
-			productName = IntegreatTests;
-			productReference = A11E26F31C09E5F90012312D /* IntegreatTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -184,10 +161,6 @@
 				TargetAttributes = {
 					833D18501C09C85F0027D604 = {
 						CreatedOnToolsVersion = 7.1.1;
-					};
-					A11E26F21C09E5F90012312D = {
-						CreatedOnToolsVersion = 7.1.1;
-						TestTargetID = 833D18501C09C85F0027D604;
 					};
 				};
 			};
@@ -205,7 +178,6 @@
 			projectRoot = "";
 			targets = (
 				833D18501C09C85F0027D604 /* Integreat */,
-				A11E26F21C09E5F90012312D /* IntegreatTests */,
 			);
 		};
 /* End PBXProject section */
@@ -221,13 +193,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A11E26F11C09E5F90012312D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -235,31 +200,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				833D185C1C09C85F0027D604 /* ViewController.m in Sources */,
 				833D18621C09C85F0027D604 /* Integreat.xcdatamodeld in Sources */,
 				833D18591C09C85F0027D604 /* AppDelegate.m in Sources */,
-				A11E26EA1C09E4100012312D /* SlimConnectionManager.m in Sources */,
 				833D18751C09D9780027D604 /* ViewController.m in Sources */,
 				833D18561C09C85F0027D604 /* main.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A11E26EF1C09E5F90012312D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A11E26F61C09E5F90012312D /* IntegreatTests.m in Sources */,
+				833D18C31C09E25A0027D604 /* Location+CoreDataProperties.m in Sources */,
+				833D18C01C09E25A0027D604 /* Language.m in Sources */,
+				833D18C11C09E25A0027D604 /* Page+CoreDataProperties.m in Sources */,
+				833D18C41C09E25A0027D604 /* Location.m in Sources */,
+				833D18BF1C09E25A0027D604 /* Language+CoreDataProperties.m in Sources */,
+				833D18C21C09E25A0027D604 /* Page.m in Sources */,
+				833D18721C09D8530027D604 /* Integreat.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A11E26F91C09E5F90012312D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 833D18501C09C85F0027D604 /* Integreat */;
-			targetProxy = A11E26F81C09E5F90012312D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		833D185D1C09C85F0027D604 /* Main.storyboard */ = {
@@ -367,10 +323,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Integreat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tuerantuer.app.Integreat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Integreat/Integreat-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -378,34 +337,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Integreat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tuerantuer.app.Integreat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		A11E26FB1C09E5F90012312D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = IntegreatTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tuerantuer.app.IntegreatTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Integreat.app/Integreat";
-			};
-			name = Debug;
-		};
-		A11E26FC1C09E5F90012312D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = IntegreatTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tuerantuer.app.IntegreatTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Integreat.app/Integreat";
+				SWIFT_OBJC_BRIDGING_HEADER = "Integreat/Integreat-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -430,24 +367,17 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A11E26FA1C09E5F90012312D /* Build configuration list for PBXNativeTarget "IntegreatTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A11E26FB1C09E5F90012312D /* Debug */,
-				A11E26FC1C09E5F90012312D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		833D18601C09C85F0027D604 /* Integreat.xcdatamodeld */ = {
+		833D18701C09D8530027D604 /* Integreat.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				833D18611C09C85F0027D604 /* Integreat.xcdatamodel */,
+				833D18711C09D8530027D604 /* Integreat.xcdatamodel */,
 			);
-			currentVersion = 833D18611C09C85F0027D604 /* Integreat.xcdatamodel */;
-			path = Integreat.xcdatamodeld;
+			currentVersion = 833D18711C09D8530027D604 /* Integreat.xcdatamodel */;
+			name = Integreat.xcdatamodeld;
+			path = model/Integreat.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
