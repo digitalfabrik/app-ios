@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "SlimConnectionManager.h"
+
 @interface IntegreatTests : XCTestCase
 
 @end
@@ -36,12 +37,10 @@
     }];
 }
 
--(void)testConnection
+-(void)testpages
 {
-    SlimConnectionManager *connMnager=[[SlimConnectionManager alloc]init];
-    [connMnager getCities];
-    [connMnager getLangauges:@"augsburg"];
-    [connMnager getPages:@"augsburg" forLanguage:@"de"];
+    SlimConnectionManager* conn=[[SlimConnectionManager alloc]init];
+    [conn getPages:@"augsburg" forLanguage:@"de"];
 }
 
 @end
