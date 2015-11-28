@@ -10,4 +10,10 @@
 
 @interface SlimConnectionManager : NSObject
 
+
+-(void)getPages:(NSString*)location forLanguage:(NSString*)language;
+
+-(void)getCities;
+
+-(void)getLangauges:(NSString*)city;
 @end

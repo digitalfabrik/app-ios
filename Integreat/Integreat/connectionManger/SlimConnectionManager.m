@@ -23,7 +23,8 @@ NSString* serverURL=@"http://vmkrcmar21.informatik.tu-muenchen.de/wordpress";
 
 -(void)getPages:(NSString*)location forLanguage:(NSString*)language
 {
-    NSString* pagesURL=[NSString stringWithFormat:@"%@/%@/%@/wp-json/extensions/v0/modified_content/pages",serverURL,location,language];
+    //TODO: change since
+    NSString* pagesURL=[NSString stringWithFormat:@"%@/%@/%@/wp-json/extensions/v0/modified_content/pages?since=2010-11-15T16:39:45%%2B0000",serverURL,location,language];
 
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithURL:[NSURL URLWithString:pagesURL]
@@ -32,14 +33,14 @@ NSString* serverURL=@"http://vmkrcmar21.informatik.tu-muenchen.de/wordpress";
                                 NSError *error) {
                 NSError *parseErr;
                 id pkg=[NSJSONSerialization JSONObjectWithData:data options:0 error:&parseErr];
-                //[self.delegate processCompleted];
+
                 
             }] resume];
 }
 
 -(void)getCities
 {
-    NSString* pagesURL=[NSString stringWithFormat:@"%@/wordpress/wp-json/extensions/v0/multisites/",serverURL];
+    NSString* pagesURL=[NSString stringWithFormat:@"%@/wp-json/extensions/v0/multisites/",serverURL];
     
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithURL:[NSURL URLWithString:pagesURL]
@@ -48,7 +49,7 @@ NSString* serverURL=@"http://vmkrcmar21.informatik.tu-muenchen.de/wordpress";
                                 NSError *error) {
                 NSError *parseErr;
                 id pkg=[NSJSONSerialization JSONObjectWithData:data options:0 error:&parseErr];
-                //[self.delegate processCompleted];
+
                 
             }] resume];
 }
