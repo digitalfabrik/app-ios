@@ -4,11 +4,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Page (CoreDataProperties)
 
-@property (nonatomic) NSUInteger identifier;
+@property (nonatomic, retain) NSString* identifier;
 @property (nullable, nonatomic, retain) NSString *excerpt;
 @property (nullable, nonatomic, retain) NSString *content;
 @property (nullable, nonatomic, retain) NSString *title;
 @property (nullable, nonatomic, retain) NSDate *lastModified;
+@property (nullable, nonatomic, retain) NSString *order;
 
 @property (nullable, nonatomic, retain) Language *language;
 @property (nullable, nonatomic, retain) Location *location;
