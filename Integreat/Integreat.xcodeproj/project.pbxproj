@@ -14,6 +14,12 @@
 		833D18641C09C85F0027D604 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 833D18631C09C85F0027D604 /* Assets.xcassets */; };
 		833D18671C09C85F0027D604 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 833D18651C09C85F0027D604 /* LaunchScreen.storyboard */; };
 		833D18721C09D8530027D604 /* Integreat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 833D18701C09D8530027D604 /* Integreat.xcdatamodeld */; };
+		833D18BF1C09E25A0027D604 /* Language+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18B41C09E25A0027D604 /* Language+CoreDataProperties.m */; };
+		833D18C01C09E25A0027D604 /* Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18B61C09E25A0027D604 /* Language.m */; };
+		833D18C11C09E25A0027D604 /* Page+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18B81C09E25A0027D604 /* Page+CoreDataProperties.m */; };
+		833D18C21C09E25A0027D604 /* Page.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18BA1C09E25A0027D604 /* Page.m */; };
+		833D18C31C09E25A0027D604 /* Location+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18BC1C09E25A0027D604 /* Location+CoreDataProperties.m */; };
+		833D18C41C09E25A0027D604 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18BE1C09E25A0027D604 /* Location.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +34,19 @@
 		833D18661C09C85F0027D604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		833D18681C09C85F0027D604 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		833D18711C09D8530027D604 /* Integreat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Integreat.xcdatamodel; sourceTree = "<group>"; };
+		833D189A1C09E18A0027D604 /* Integreat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Integreat-Bridging-Header.h"; sourceTree = "<group>"; };
+		833D18B31C09E25A0027D604 /* Language+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Language+CoreDataProperties.h"; path = "model/Language+CoreDataProperties.h"; sourceTree = "<group>"; };
+		833D18B41C09E25A0027D604 /* Language+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Language+CoreDataProperties.m"; path = "model/Language+CoreDataProperties.m"; sourceTree = "<group>"; };
+		833D18B51C09E25A0027D604 /* Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Language.h; path = model/Language.h; sourceTree = "<group>"; };
+		833D18B61C09E25A0027D604 /* Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Language.m; path = model/Language.m; sourceTree = "<group>"; };
+		833D18B71C09E25A0027D604 /* Page+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Page+CoreDataProperties.h"; path = "model/Page+CoreDataProperties.h"; sourceTree = "<group>"; };
+		833D18B81C09E25A0027D604 /* Page+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Page+CoreDataProperties.m"; path = "model/Page+CoreDataProperties.m"; sourceTree = "<group>"; };
+		833D18B91C09E25A0027D604 /* Page.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Page.h; path = model/Page.h; sourceTree = "<group>"; };
+		833D18BA1C09E25A0027D604 /* Page.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Page.m; path = model/Page.m; sourceTree = "<group>"; };
+		833D18BB1C09E25A0027D604 /* Location+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Location+CoreDataProperties.h"; path = "model/Location+CoreDataProperties.h"; sourceTree = "<group>"; };
+		833D18BC1C09E25A0027D604 /* Location+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Location+CoreDataProperties.m"; path = "model/Location+CoreDataProperties.m"; sourceTree = "<group>"; };
+		833D18BD1C09E25A0027D604 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = model/Location.h; sourceTree = "<group>"; };
+		833D18BE1C09E25A0027D604 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = model/Location.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +89,7 @@
 				833D18631C09C85F0027D604 /* Assets.xcassets */,
 				833D18651C09C85F0027D604 /* LaunchScreen.storyboard */,
 				833D18681C09C85F0027D604 /* Info.plist */,
+				833D189A1C09E18A0027D604 /* Integreat-Bridging-Header.h */,
 				833D18541C09C85F0027D604 /* Supporting Files */,
 			);
 			path = Integreat;
@@ -94,6 +114,18 @@
 			isa = PBXGroup;
 			children = (
 				833D18701C09D8530027D604 /* Integreat.xcdatamodeld */,
+				833D18B51C09E25A0027D604 /* Language.h */,
+				833D18B61C09E25A0027D604 /* Language.m */,
+				833D18B31C09E25A0027D604 /* Language+CoreDataProperties.h */,
+				833D18B41C09E25A0027D604 /* Language+CoreDataProperties.m */,
+				833D18B91C09E25A0027D604 /* Page.h */,
+				833D18BA1C09E25A0027D604 /* Page.m */,
+				833D18B71C09E25A0027D604 /* Page+CoreDataProperties.h */,
+				833D18B81C09E25A0027D604 /* Page+CoreDataProperties.m */,
+				833D18BD1C09E25A0027D604 /* Location.h */,
+				833D18BE1C09E25A0027D604 /* Location.m */,
+				833D18BB1C09E25A0027D604 /* Location+CoreDataProperties.h */,
+				833D18BC1C09E25A0027D604 /* Location+CoreDataProperties.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -171,6 +203,12 @@
 				833D185C1C09C85F0027D604 /* ViewController.m in Sources */,
 				833D18591C09C85F0027D604 /* AppDelegate.m in Sources */,
 				833D18561C09C85F0027D604 /* main.m in Sources */,
+				833D18C31C09E25A0027D604 /* Location+CoreDataProperties.m in Sources */,
+				833D18C01C09E25A0027D604 /* Language.m in Sources */,
+				833D18C11C09E25A0027D604 /* Page+CoreDataProperties.m in Sources */,
+				833D18C41C09E25A0027D604 /* Location.m in Sources */,
+				833D18BF1C09E25A0027D604 /* Language+CoreDataProperties.m in Sources */,
+				833D18C21C09E25A0027D604 /* Page.m in Sources */,
 				833D18721C09D8530027D604 /* Integreat.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,10 +321,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Integreat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tuerantuer.app.Integreat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Integreat/Integreat-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -294,10 +335,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Integreat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tuerantuer.app.Integreat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Integreat/Integreat-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -320,6 +363,7 @@
 				833D186D1C09C85F0027D604 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
