@@ -7,7 +7,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Language : NSManagedObject
 
-// Insert code here to declare functionality of your managed object subclass
++ (nullable instancetype)findLanguageWithIdentifier:(NSString *)identifier inContext:(NSManagedObjectContext *)context;
 
 @end
 

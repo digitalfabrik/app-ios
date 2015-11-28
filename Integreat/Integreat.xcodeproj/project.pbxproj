@@ -20,6 +20,9 @@
 		833D18C21C09E25A0027D604 /* Page.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18BA1C09E25A0027D604 /* Page.m */; };
 		833D18C31C09E25A0027D604 /* Location+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18BC1C09E25A0027D604 /* Location+CoreDataProperties.m */; };
 		833D18C41C09E25A0027D604 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18BE1C09E25A0027D604 /* Location.m */; };
+		833D18CE1C09F74A0027D604 /* Language+JsonMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D18CD1C09F74A0027D604 /* Language+JsonMapping.swift */; };
+		833D18D01C09F7560027D604 /* Location+JsonMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D18CF1C09F7560027D604 /* Location+JsonMapping.swift */; };
+		833D18D21C09F75B0027D604 /* Page+JsonMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D18D11C09F75B0027D604 /* Page+JsonMapping.swift */; };
 		A11E27021C09E9C50012312D /* SlimConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27011C09E9C50012312D /* SlimConnectionManager.m */; };
 		A11E270A1C09EE4C0012312D /* IntegreatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27091C09EE4C0012312D /* IntegreatTests.m */; };
 /* End PBXBuildFile section */
@@ -59,6 +62,9 @@
 		833D18BC1C09E25A0027D604 /* Location+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Location+CoreDataProperties.m"; path = "model/Location+CoreDataProperties.m"; sourceTree = "<group>"; };
 		833D18BD1C09E25A0027D604 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = model/Location.h; sourceTree = "<group>"; };
 		833D18BE1C09E25A0027D604 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = model/Location.m; sourceTree = "<group>"; };
+		833D18CD1C09F74A0027D604 /* Language+JsonMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Language+JsonMapping.swift"; path = "model/Language+JsonMapping.swift"; sourceTree = "<group>"; };
+		833D18CF1C09F7560027D604 /* Location+JsonMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Location+JsonMapping.swift"; path = "model/Location+JsonMapping.swift"; sourceTree = "<group>"; };
+		833D18D11C09F75B0027D604 /* Page+JsonMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Page+JsonMapping.swift"; path = "model/Page+JsonMapping.swift"; sourceTree = "<group>"; };
 		A11E27001C09E9C50012312D /* SlimConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlimConnectionManager.h; path = connectionManger/SlimConnectionManager.h; sourceTree = "<group>"; };
 		A11E27011C09E9C50012312D /* SlimConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlimConnectionManager.m; path = connectionManger/SlimConnectionManager.m; sourceTree = "<group>"; };
 		A11E27071C09EE4C0012312D /* IntegreatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegreatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,14 +151,17 @@
 				833D18B61C09E25A0027D604 /* Language.m */,
 				833D18B31C09E25A0027D604 /* Language+CoreDataProperties.h */,
 				833D18B41C09E25A0027D604 /* Language+CoreDataProperties.m */,
+				833D18CD1C09F74A0027D604 /* Language+JsonMapping.swift */,
 				833D18B91C09E25A0027D604 /* Page.h */,
 				833D18BA1C09E25A0027D604 /* Page.m */,
 				833D18B71C09E25A0027D604 /* Page+CoreDataProperties.h */,
 				833D18B81C09E25A0027D604 /* Page+CoreDataProperties.m */,
+				833D18D11C09F75B0027D604 /* Page+JsonMapping.swift */,
 				833D18BD1C09E25A0027D604 /* Location.h */,
 				833D18BE1C09E25A0027D604 /* Location.m */,
 				833D18BB1C09E25A0027D604 /* Location+CoreDataProperties.h */,
 				833D18BC1C09E25A0027D604 /* Location+CoreDataProperties.m */,
+				833D18CF1C09F7560027D604 /* Location+JsonMapping.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -276,8 +285,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				833D18591C09C85F0027D604 /* AppDelegate.m in Sources */,
+				833D18CE1C09F74A0027D604 /* Language+JsonMapping.swift in Sources */,
+				833D18D01C09F7560027D604 /* Location+JsonMapping.swift in Sources */,
 				833D18751C09D9780027D604 /* ViewController.m in Sources */,
 				833D18561C09C85F0027D604 /* main.m in Sources */,
+				833D18D21C09F75B0027D604 /* Page+JsonMapping.swift in Sources */,
 				833D18C31C09E25A0027D604 /* Location+CoreDataProperties.m in Sources */,
 				833D18C01C09E25A0027D604 /* Language.m in Sources */,
 				833D18C11C09E25A0027D604 /* Page+CoreDataProperties.m in Sources */,
