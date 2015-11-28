@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="14F27" minimumToolsVersion="Automatic">
+    <entity name="Language" representedClassName="Language" syncable="YES">
+        <attribute name="iconImage" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="iconImageUrl" attributeType="Transformable" syncable="YES"/>
+        <attribute name="identifier" attributeType="Integer 16" indexed="YES" syncable="YES"/>
+        <attribute name="nativeName" attributeType="String" syncable="YES"/>
+        <attribute name="resourceName" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="locations" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="languages" inverseEntity="Location" syncable="YES"/>
+        <relationship name="pages" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Page" inverseName="language" inverseEntity="Page" syncable="YES"/>
+    </entity>
+    <entity name="Location" representedClassName="Location" syncable="YES">
+        <attribute name="color" attributeType="String" syncable="YES"/>
+        <attribute name="coverImage" optional="YES" attributeType="Transformable" storedInTruthFile="YES" syncable="YES"/>
+        <attribute name="coverImageUrl" attributeType="Transformable" syncable="YES"/>
+        <attribute name="iconImage" optional="YES" attributeType="Transformable" storedInTruthFile="YES" syncable="YES"/>
+        <attribute name="iconImageUrl" attributeType="Transformable" syncable="YES"/>
+        <attribute name="identifier" attributeType="Integer 16" indexed="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="resourceName" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="languages" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Language" inverseName="locations" inverseEntity="Language" syncable="YES"/>
+        <relationship name="pages" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Page" inverseName="location" inverseEntity="Page" syncable="YES"/>
+    </entity>
+    <entity name="Page" representedClassName="Page" syncable="YES">
+        <attribute name="content" attributeType="String" syncable="YES"/>
+        <attribute name="excerpt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" attributeType="Integer 16" indexed="YES" syncable="YES"/>
+        <attribute name="lastModified" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="childPages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Page" inverseName="parentPage" inverseEntity="Page" syncable="YES"/>
+        <relationship name="language" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Language" inverseName="pages" inverseEntity="Language" syncable="YES"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="pages" inverseEntity="Location" syncable="YES"/>
+        <relationship name="parentPage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Page" inverseName="childPages" inverseEntity="Page" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Language" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="Location" positionX="-27" positionY="18" width="128" height="195"/>
+        <element name="Page" positionX="-9" positionY="36" width="128" height="180"/>
+    </elements>
+</model>
