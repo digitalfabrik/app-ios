@@ -14,6 +14,7 @@
 		833D18641C09C85F0027D604 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 833D18631C09C85F0027D604 /* Assets.xcassets */; };
 		833D18671C09C85F0027D604 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 833D18651C09C85F0027D604 /* LaunchScreen.storyboard */; };
 		833D18751C09D9780027D604 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18741C09D9780027D604 /* ViewController.m */; };
+		A11E26EA1C09E4100012312D /* SlimConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E26E91C09E4100012312D /* SlimConnectionManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,8 @@
 		833D18681C09C85F0027D604 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		833D18731C09D9780027D604 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = viewcontrollers/ViewController.h; sourceTree = "<group>"; };
 		833D18741C09D9780027D604 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = viewcontrollers/ViewController.m; sourceTree = "<group>"; };
+		A11E26E81C09E4100012312D /* SlimConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlimConnectionManager.h; path = connectionManger/SlimConnectionManager.h; sourceTree = "<group>"; };
+		A11E26E91C09E4100012312D /* SlimConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlimConnectionManager.m; path = connectionManger/SlimConnectionManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,7 @@
 		833D18531C09C85F0027D604 /* Integreat */ = {
 			isa = PBXGroup;
 			children = (
+				A11E26E71C09E3FE0012312D /* connectionManager */,
 				833D186E1C09CD630027D604 /* viewcontrollers */,
 				833D18571C09C85F0027D604 /* AppDelegate.h */,
 				833D18581C09C85F0027D604 /* AppDelegate.m */,
@@ -88,6 +92,15 @@
 				833D18741C09D9780027D604 /* ViewController.m */,
 			);
 			name = viewcontrollers;
+			sourceTree = "<group>";
+		};
+		A11E26E71C09E3FE0012312D /* connectionManager */ = {
+			isa = PBXGroup;
+			children = (
+				A11E26E81C09E4100012312D /* SlimConnectionManager.h */,
+				A11E26E91C09E4100012312D /* SlimConnectionManager.m */,
+			);
+			name = connectionManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +175,7 @@
 			files = (
 				833D18621C09C85F0027D604 /* Integreat.xcdatamodeld in Sources */,
 				833D18591C09C85F0027D604 /* AppDelegate.m in Sources */,
+				A11E26EA1C09E4100012312D /* SlimConnectionManager.m in Sources */,
 				833D18751C09D9780027D604 /* ViewController.m in Sources */,
 				833D18561C09C85F0027D604 /* main.m in Sources */,
 			);

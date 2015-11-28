@@ -32,7 +32,7 @@ NSString* serverURL=@"http://vmkrcmar21.informatik.tu-muenchen.de/wordpress";
                                 NSError *error) {
                 NSError *parseErr;
                 id pkg=[NSJSONSerialization JSONObjectWithData:data options:0 error:&parseErr];
-                //[self.delegate processCompleted];
+
                 
             }] resume];
 }
@@ -48,7 +48,7 @@ NSString* serverURL=@"http://vmkrcmar21.informatik.tu-muenchen.de/wordpress";
                                 NSError *error) {
                 NSError *parseErr;
                 id pkg=[NSJSONSerialization JSONObjectWithData:data options:0 error:&parseErr];
-                //[self.delegate processCompleted];
+
                 
             }] resume];
 }
@@ -64,7 +64,7 @@ NSString* serverURL=@"http://vmkrcmar21.informatik.tu-muenchen.de/wordpress";
                                 NSError *error) {
                 NSError *parseErr;
                 id pkg=[NSJSONSerialization JSONObjectWithData:data options:0 error:&parseErr];
-                //[self.delegate processCompleted];
+
                 
             }] resume];
 }
