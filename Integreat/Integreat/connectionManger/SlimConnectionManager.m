@@ -21,7 +21,7 @@ NSString* serverURL=@"http://vmkrcmar21.informatik.tu-muenchen.de/wordpress";
     return self;
 }
 
--(void)getPages:(NSString*)location forLanguage:(NSString*)language
+-(void)getPages:(NSString*)location forLanguage:(NSString*)language withCompletionHandler:(GetArrayCompletionHandler)completion
 {
     //TODO: change since
     NSString* pagesURL=[NSString stringWithFormat:@"%@/%@/%@/wp-json/extensions/v0/modified_content/pages?since=2010-11-15T16:39:45%%2B0000",serverURL,location,language];
@@ -32,13 +32,12 @@ NSString* serverURL=@"http://vmkrcmar21.informatik.tu-muenchen.de/wordpress";
                                 NSURLResponse *response,
                                 NSError *error) {
                 NSError *parseErr;
-                id pkg=[NSJSONSerialization JSONObjectWithData:data options:0 error:&parseErr];
-
-                
+                id pkg=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&parseErr];
+                completion(pkg, nil);
             }] resume];
 }
 
--(void)getCities
+-(void)getLocationsWithCompletionHandler:(GetArrayCompletionHandler)completion
 {
     NSString* pagesURL=[NSString stringWithFormat:@"%@/wp-json/extensions/v0/multisites/",serverURL];
     
@@ -48,13 +47,12 @@ NSString* serverURL=@"http://vmkrcmar21.informatik.tu-muenchen.de/wordpress";
                                 NSURLResponse *response,
                                 NSError *error) {
                 NSError *parseErr;
-                id pkg=[NSJSONSerialization JSONObjectWithData:data options:0 error:&parseErr];
-
-                
+                id pkg = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseErr];
+                completion(pkg, nil);
             }] resume];
 }
 
--(void)getLangauges:(NSString*)city
+-(void)getLangauges:(NSString*)city withCompletionHandler:(GetArrayCompletionHandler)completion
 {
     NSString* pagesURL=[NSString stringWithFormat:@"%@/%@/de/wp-json/extensions/v0/languages/wpml",serverURL,city];
     
@@ -65,8 +63,7 @@ NSString* serverURL=@"http://vmkrcmar21.informatik.tu-muenchen.de/wordpress";
                                 NSError *error) {
                 NSError *parseErr;
                 id pkg=[NSJSONSerialization JSONObjectWithData:data options:0 error:&parseErr];
-                //[self.delegate processCompleted];
-                
+                completion(pkg, nil);
             }] resume];
 }
 
