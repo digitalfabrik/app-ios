@@ -22,6 +22,9 @@
 		833D18C41C09E25A0027D604 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18BE1C09E25A0027D604 /* Location.m */; };
 		A11E27021C09E9C50012312D /* SlimConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27011C09E9C50012312D /* SlimConnectionManager.m */; };
 		A11E270A1C09EE4C0012312D /* IntegreatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27091C09EE4C0012312D /* IntegreatTests.m */; };
+		A11E27131C09F35C0012312D /* IGCityPickerVCCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27121C09F35C0012312D /* IGCityPickerVCCollectionViewController.m */; };
+		A11E27161C09F3D90012312D /* IGLanguagePickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27151C09F3D90012312D /* IGLanguagePickerVC.m */; };
+		A11E271A1C09FE800012312D /* IGCustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27181C09F6510012312D /* IGCustomCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,12 @@
 		A11E27071C09EE4C0012312D /* IntegreatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegreatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A11E27091C09EE4C0012312D /* IntegreatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntegreatTests.m; sourceTree = "<group>"; };
 		A11E270B1C09EE4C0012312D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A11E27111C09F35C0012312D /* IGCityPickerVCCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IGCityPickerVCCollectionViewController.h; path = viewcontrollers/IGCityPickerVCCollectionViewController.h; sourceTree = "<group>"; };
+		A11E27121C09F35C0012312D /* IGCityPickerVCCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGCityPickerVCCollectionViewController.m; path = viewcontrollers/IGCityPickerVCCollectionViewController.m; sourceTree = "<group>"; };
+		A11E27141C09F3D90012312D /* IGLanguagePickerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IGLanguagePickerVC.h; path = viewcontrollers/IGLanguagePickerVC.h; sourceTree = "<group>"; };
+		A11E27151C09F3D90012312D /* IGLanguagePickerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGLanguagePickerVC.m; path = viewcontrollers/IGLanguagePickerVC.m; sourceTree = "<group>"; };
+		A11E27171C09F6510012312D /* IGCustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IGCustomCollectionViewCell.h; path = viewcontrollers/IGCustomCollectionViewCell.h; sourceTree = "<group>"; };
+		A11E27181C09F6510012312D /* IGCustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGCustomCollectionViewCell.m; path = viewcontrollers/IGCustomCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,8 +140,14 @@
 		833D186E1C09CD630027D604 /* viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
+				A11E27111C09F35C0012312D /* IGCityPickerVCCollectionViewController.h */,
+				A11E27121C09F35C0012312D /* IGCityPickerVCCollectionViewController.m */,
 				833D18731C09D9780027D604 /* ViewController.h */,
 				833D18741C09D9780027D604 /* ViewController.m */,
+				A11E27141C09F3D90012312D /* IGLanguagePickerVC.h */,
+				A11E27151C09F3D90012312D /* IGLanguagePickerVC.m */,
+				A11E27171C09F6510012312D /* IGCustomCollectionViewCell.h */,
+				A11E27181C09F6510012312D /* IGCustomCollectionViewCell.m */,
 			);
 			name = viewcontrollers;
 			sourceTree = "<group>";
@@ -277,11 +292,14 @@
 			files = (
 				833D18591C09C85F0027D604 /* AppDelegate.m in Sources */,
 				833D18751C09D9780027D604 /* ViewController.m in Sources */,
+				A11E27131C09F35C0012312D /* IGCityPickerVCCollectionViewController.m in Sources */,
 				833D18561C09C85F0027D604 /* main.m in Sources */,
 				833D18C31C09E25A0027D604 /* Location+CoreDataProperties.m in Sources */,
 				833D18C01C09E25A0027D604 /* Language.m in Sources */,
 				833D18C11C09E25A0027D604 /* Page+CoreDataProperties.m in Sources */,
+				A11E271A1C09FE800012312D /* IGCustomCollectionViewCell.m in Sources */,
 				833D18C41C09E25A0027D604 /* Location.m in Sources */,
+				A11E27161C09F3D90012312D /* IGLanguagePickerVC.m in Sources */,
 				833D18BF1C09E25A0027D604 /* Language+CoreDataProperties.m in Sources */,
 				A11E27021C09E9C50012312D /* SlimConnectionManager.m in Sources */,
 				833D18C21C09E25A0027D604 /* Page.m in Sources */,
