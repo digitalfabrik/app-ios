@@ -23,6 +23,7 @@
 		833D18CE1C09F74A0027D604 /* Language+JsonMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D18CD1C09F74A0027D604 /* Language+JsonMapping.swift */; };
 		833D18D01C09F7560027D604 /* Location+JsonMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D18CF1C09F7560027D604 /* Location+JsonMapping.swift */; };
 		833D18D21C09F75B0027D604 /* Page+JsonMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D18D11C09F75B0027D604 /* Page+JsonMapping.swift */; };
+		833D18DF1C0A0D8B0027D604 /* IGApiService.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18DE1C0A0D8B0027D604 /* IGApiService.m */; };
 		A11E27021C09E9C50012312D /* SlimConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27011C09E9C50012312D /* SlimConnectionManager.m */; };
 		A11E270A1C09EE4C0012312D /* IntegreatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27091C09EE4C0012312D /* IntegreatTests.m */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,8 @@
 		833D18CD1C09F74A0027D604 /* Language+JsonMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Language+JsonMapping.swift"; path = "model/Language+JsonMapping.swift"; sourceTree = "<group>"; };
 		833D18CF1C09F7560027D604 /* Location+JsonMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Location+JsonMapping.swift"; path = "model/Location+JsonMapping.swift"; sourceTree = "<group>"; };
 		833D18D11C09F75B0027D604 /* Page+JsonMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Page+JsonMapping.swift"; path = "model/Page+JsonMapping.swift"; sourceTree = "<group>"; };
+		833D18DD1C0A0D8B0027D604 /* IGApiService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IGApiService.h; path = api/IGApiService.h; sourceTree = "<group>"; };
+		833D18DE1C0A0D8B0027D604 /* IGApiService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGApiService.m; path = api/IGApiService.m; sourceTree = "<group>"; };
 		A11E27001C09E9C50012312D /* SlimConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlimConnectionManager.h; path = connectionManger/SlimConnectionManager.h; sourceTree = "<group>"; };
 		A11E27011C09E9C50012312D /* SlimConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlimConnectionManager.m; path = connectionManger/SlimConnectionManager.m; sourceTree = "<group>"; };
 		A11E27071C09EE4C0012312D /* IntegreatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegreatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +114,7 @@
 		833D18531C09C85F0027D604 /* Integreat */ = {
 			isa = PBXGroup;
 			children = (
+				833D18D31C09F96A0027D604 /* api */,
 				A11E26FF1C09E9AF0012312D /* connectionmanager */,
 				833D186F1C09D8480027D604 /* model */,
 				833D186E1C09CD630027D604 /* viewcontrollers */,
@@ -164,6 +168,15 @@
 				833D18CF1C09F7560027D604 /* Location+JsonMapping.swift */,
 			);
 			name = model;
+			sourceTree = "<group>";
+		};
+		833D18D31C09F96A0027D604 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				833D18DD1C0A0D8B0027D604 /* IGApiService.h */,
+				833D18DE1C0A0D8B0027D604 /* IGApiService.m */,
+			);
+			name = api;
 			sourceTree = "<group>";
 		};
 		A11E26FF1C09E9AF0012312D /* connectionmanager */ = {
@@ -295,6 +308,7 @@
 				833D18C11C09E25A0027D604 /* Page+CoreDataProperties.m in Sources */,
 				833D18C41C09E25A0027D604 /* Location.m in Sources */,
 				833D18BF1C09E25A0027D604 /* Language+CoreDataProperties.m in Sources */,
+				833D18DF1C0A0D8B0027D604 /* IGApiService.m in Sources */,
 				A11E27021C09E9C50012312D /* SlimConnectionManager.m in Sources */,
 				833D18C21C09E25A0027D604 /* Page.m in Sources */,
 				833D18721C09D8530027D604 /* Integreat.xcdatamodeld in Sources */,
@@ -500,6 +514,7 @@
 				A11E270F1C09EE4C0012312D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

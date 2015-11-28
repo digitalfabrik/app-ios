@@ -8,12 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^GetArrayCompletionHandler)(NSArray *resut, NSError *error);
+
+
 @interface SlimConnectionManager : NSObject
 
+-(void)getPages:(NSString*)location forLanguage:(NSString*)language withCompletionHandler:(GetArrayCompletionHandler)completion;
 
--(void)getPages:(NSString*)location forLanguage:(NSString*)language;
+-(void)getLocationsWithCompletionHandler:(GetArrayCompletionHandler)completion;
 
--(void)getCities;
+-(void)getLangauges:(NSString*)city withCompletionHandler:(GetArrayCompletionHandler)completion;
 
--(void)getLangauges:(NSString*)city;
 @end
