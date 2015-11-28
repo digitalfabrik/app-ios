@@ -7,16 +7,27 @@
 //
 
 #import "AppDelegate.h"
+#import "IGApiService.h"
+#import "IGCityPickerVCCollectionViewController.h"
 
 @interface AppDelegate ()
 
+@property (nonnull, strong, nonatomic) IGApiService *apiService;
+
 @end
+
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    self.apiService = [[IGApiService alloc] initWithContext:self.managedObjectContext];
+    
+    UINavigationController *navigationController = (id)self.window.rootViewController;
+    IGCityPickerVCCollectionViewController *cityPickerVC = (id)navigationController.topViewController;
+    cityPickerVC.apiService = self.apiService;
+    
     return YES;
 }
 

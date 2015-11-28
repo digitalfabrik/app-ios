@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IGApiService.h"
+#import "Location.h"
 
-@interface IGLanguagePickerVC : UICollectionViewController
-@property (nonatomic) NSString* selectedCity;
+@interface IGLanguagePickerVC : UICollectionViewController <UICollectionViewDelegateFlowLayout>
+@property (strong, nonatomic) IGApiService *apiService;
+@property (nonatomic) Location* selectedLocation;
 @end

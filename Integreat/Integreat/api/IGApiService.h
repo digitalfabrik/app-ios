@@ -17,7 +17,7 @@ typedef void(^FetchPagesCompletionHandler)( NSArray<Page *> * _Nullable pages, N
 
 
 /// Fetches all locations
-- (void)fetchLocationsWithCompletionHandler:(nonnull FetchLanguagesCompletionHandler)completion;
+- (void)fetchLocationsWithCompletionHandler:(nonnull FetchLocationsCompletionHandler)completion;
 
 /// Fetches all languages for a specific location
 - (void)fetchLanguagesForLocation:(nonnull Location *)location
@@ -26,6 +26,6 @@ typedef void(^FetchPagesCompletionHandler)( NSArray<Page *> * _Nullable pages, N
 /// Fetches pages for a specific location and language
 - (void)fetchPagesForLocation:(nonnull Location *)location
                      language:(nonnull Language *)language
-        withCompletionHandler:(nonnull FetchLanguagesCompletionHandler)completion;
+        withCompletionHandler:(nonnull FetchPagesCompletionHandler)completion;
 
 @end

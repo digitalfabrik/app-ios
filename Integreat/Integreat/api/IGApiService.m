@@ -22,7 +22,7 @@
 }
 
 
-- (void)fetchLocationsWithCompletionHandler:(FetchLanguagesCompletionHandler)completion
+- (void)fetchLocationsWithCompletionHandler:(FetchLocationsCompletionHandler)completion
 {
     typeof(self) weakSelf = self;
     [self.connectionManager getLocationsWithCompletionHandler:^(NSArray *locationsJson, NSError *error) {
@@ -71,7 +71,7 @@
 
 - (void)fetchPagesForLocation:(Location *)location
                      language:(Language *)language
-        withCompletionHandler:(FetchLanguagesCompletionHandler)completion
+        withCompletionHandler:(FetchPagesCompletionHandler)completion
 {
     typeof(self) weakSelf = self;
     [self.connectionManager getPages:location.resourceName forLanguage:language.resourceName withCompletionHandler:^(NSArray *pagesJson, NSError *error) {

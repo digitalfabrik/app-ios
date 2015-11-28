@@ -33,7 +33,9 @@ NSString* serverURL=@"http://vmkrcmar21.informatik.tu-muenchen.de/wordpress";
                                 NSError *error) {
                 NSError *parseErr;
                 id pkg=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&parseErr];
-                completion(pkg, nil);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completion(pkg, nil);
+                });
             }] resume];
 }
 
@@ -48,7 +50,9 @@ NSString* serverURL=@"http://vmkrcmar21.informatik.tu-muenchen.de/wordpress";
                                 NSError *error) {
                 NSError *parseErr;
                 id pkg = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseErr];
-                completion(pkg, nil);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completion(pkg, nil);
+                });
             }] resume];
 }
 
@@ -63,7 +67,9 @@ NSString* serverURL=@"http://vmkrcmar21.informatik.tu-muenchen.de/wordpress";
                                 NSError *error) {
                 NSError *parseErr;
                 id pkg=[NSJSONSerialization JSONObjectWithData:data options:0 error:&parseErr];
-                completion(pkg, nil);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completion(pkg, nil);
+                });
             }] resume];
 }
 

@@ -20,7 +20,7 @@ extension Location {
     
     class func updateLocation(location: Location, withJson json: [String: AnyObject]) {
         location.resourceName = (json["path"] as? String).flatMap {
-            $0.componentsSeparatedByString("/").last
+            $0.componentsSeparatedByString("/")[2]
         }
         location.color = json["color"] as? String
         location.name = json["name"] as? String

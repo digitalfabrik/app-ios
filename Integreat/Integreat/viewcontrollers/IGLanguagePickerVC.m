@@ -8,21 +8,30 @@
 
 #import "IGLanguagePickerVC.h"
 #import "IGCustomCollectionViewCell.h"
+#import "IGPagesListVC.h"
 @interface IGLanguagePickerVC ()
-
+@property (strong, nonatomic, nonnull) NSArray<Language *> *languages;
 @end
 
 @implementation IGLanguagePickerVC
 
 static NSString * const reuseIdentifier = @"Cell";
-NSMutableArray *languagesArray;
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    
+    self.languages = @[];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    languagesArray=[[NSMutableArray alloc]init];
-    languagesArray=[NSMutableArray arrayWithObjects:@"Deutsch",@"English",@"Arabic",nil];
-    
-    // Do any additional setup after loading the view.
+    typeof(self) weakSelf = self;
+    [self.apiService fetchLanguagesForLocation:self.selectedLocation withCompletionHandler:^(NSArray<Language *> * _Nullable languages, NSError * _Nullable error) {
+        weakSelf.languages = languages;
+        [weakSelf.collectionView reloadData];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,10 +49,12 @@ NSMutableArray *languagesArray;
     if ([[segue identifier] isEqualToString:@"pagesSeg"])
     {
         // Get reference to the destination view controller
-        //IGLanguagePickerVC *vc = [segue destinationViewController];
+        IGPagesListVC *vc = [segue destinationViewController];
         IGCustomCollectionViewCell* selectedCell=(IGCustomCollectionViewCell*)sender;
-        
-        
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:selectedCell];
+        vc.selectedLocation= self.selectedLocation;
+        vc.selectedLanguage= self.languages[indexPath.item];
+        vc.apiService = self.apiService;
     }
 }
 
@@ -56,17 +67,30 @@ NSMutableArray *languagesArray;
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [languagesArray count];
+    return [self.languages count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     IGCustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    cell.cellTitle.text=[languagesArray objectAtIndex:indexPath.row];
     
+    Language *language = self.languages[indexPath.row];
+    
+    cell.cellTitle.text=[language nativeName];
+    
+    [language getImageWithCompletionHandler:^(UIImage * _Nonnull image) {
+        cell.cellImage.image = image;
+    }];
+
     return cell;
 }
 
 #pragma mark <UICollectionViewDelegate>
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat dimens = collectionView.bounds.size.width * 0.4;
+    return CGSizeMake(dimens, dimens);
+}
 
 /*
 // Uncomment this method to specify if the specified item should be highlighted during tracking

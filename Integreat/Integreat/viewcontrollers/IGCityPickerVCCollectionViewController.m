@@ -12,24 +12,29 @@
 #import "IGLanguagePickerVC.h"
 @interface IGCityPickerVCCollectionViewController ()
 
+@property (strong, nonatomic) NSArray<Location *> *locations;
+
 @end
 
 @implementation IGCityPickerVCCollectionViewController
 
 static NSString * const reuseIdentifier = @"Cell";
-NSMutableArray *citiesArray;
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    
+    self.locations = @[];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    citiesArray=[[NSMutableArray alloc]init];
-    citiesArray=[NSMutableArray arrayWithObjects:@"Augsburg",@"Munich",@"Berlin",nil];
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Register cell classes
-   // [self.collectionView registerClass:[IGCustomCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    
-    // Do any additional setup after loading the view.
+    typeof(self) weakSelf = self;
+    [self.apiService fetchLocationsWithCompletionHandler:^(NSArray<Location *> * _Nullable locations, NSError * _Nullable error) {
+        weakSelf.locations = locations;
+        [weakSelf.collectionView reloadData];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,7 +54,9 @@ NSMutableArray *citiesArray;
         // Get reference to the destination view controller
         IGLanguagePickerVC *vc = [segue destinationViewController];
         IGCustomCollectionViewCell* selectedCell=(IGCustomCollectionViewCell*)sender;
-        vc.selectedCity=selectedCell.cellTitle.text;
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:selectedCell];
+        vc.selectedLocation= self.locations[indexPath.item];
+        vc.apiService = self.apiService;
     }
 }
 
@@ -62,18 +69,31 @@ NSMutableArray *citiesArray;
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [citiesArray count];
+    return self.locations.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     IGCustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    cell.cellTitle.text=[citiesArray objectAtIndex:indexPath.row];
     
-
+    Location *location = self.locations[indexPath.item];
+    
+    cell.cellTitle.text= location.name;
+    
+    [location getImageWithCompletionHandler:^(UIImage * _Nonnull image) {
+        cell.cellImage.image = image;
+    }];
+    
     return cell;
 }
 
 #pragma mark <UICollectionViewDelegate>
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat dimens = collectionView.bounds.size.width * 0.4;
+    return CGSizeMake(dimens, dimens);
+}
+
 
 /*
 // Uncomment this method to specify if the specified item should be highlighted during tracking

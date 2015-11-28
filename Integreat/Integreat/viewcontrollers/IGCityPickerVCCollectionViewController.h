@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IGApiService.h"
 
-@interface IGCityPickerVCCollectionViewController : UICollectionViewController
 
+@interface IGCityPickerVCCollectionViewController : UICollectionViewController <UICollectionViewDelegateFlowLayout>
+
+@property (strong, nonatomic) IGApiService *apiService;
 
 @end
