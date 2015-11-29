@@ -10,7 +10,6 @@
 @property (strong, nonatomic) Location *selectedLocation;
 @property (strong, nonatomic) Language *selectedLanguage;
 
-@property (strong, nonatomic) NSArray<Page *> *pages;
 @property (strong, nonatomic) IBOutlet UISearchBar *pagesSearchBar;
 
 @end

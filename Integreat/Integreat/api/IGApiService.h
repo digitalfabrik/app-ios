@@ -16,16 +16,14 @@ typedef void(^FetchPagesCompletionHandler)( NSArray<Page *> * _Nullable pages, N
 - (nonnull instancetype)initWithContext:(nonnull NSManagedObjectContext *)context;
 
 
-/// Fetches all locations
-- (void)fetchLocationsWithCompletionHandler:(nonnull FetchLocationsCompletionHandler)completion;
+/// Updates all locations
+- (void)updateLocations;
 
-/// Fetches all languages for a specific location
-- (void)fetchLanguagesForLocation:(nonnull Location *)location
-            withCompletionHandler:(nonnull FetchLanguagesCompletionHandler)completion;
+/// Updates all languages for a specific location
+- (void)upateLanguagesForLocation:(nonnull Location *)location;
 
-/// Fetches pages for a specific location and language
-- (void)fetchPagesForLocation:(nonnull Location *)location
-                     language:(nonnull Language *)language
-        withCompletionHandler:(nonnull FetchPagesCompletionHandler)completion;
+/// Updates all pages for a specific location and language
+- (void)updatePagesForLocation:(nonnull Location *)location
+                      language:(nonnull Language *)language;
 
 @end

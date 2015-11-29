@@ -3,38 +3,46 @@
 #import "IGPageVC.h"
 #import "Integreat-Swift.h"
 
-@interface IGPagesListVC()
-    @property (strong,nonatomic) NSMutableArray *filteredSearchPagesArray;
+@interface IGPagesListVC() <NSFetchedResultsControllerDelegate>
+    @property (strong,nonatomic) NSArray *pages;
+    @property (strong, nonatomic) NSFetchedResultsController *fetchedPages;
 @end
+
 
 @implementation IGPagesListVC
 
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-    
-    self.pages = @[];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    typeof(self) weakSelf = self;
-    [self.apiService fetchPagesForLocation:self.selectedLocation
-                                  language:self.selectedLanguage
-                     withCompletionHandler:^(NSArray<Page *> * _Nullable pages, NSError * _Nullable error) {
-                         NSMutableArray *filteredPages = [NSMutableArray array];
-                         for (Page *page in pages) {
-                             if (page.parentPage == nil) {
-                                 [filteredPages addObject:page];
-                             }
-                         }
-                         weakSelf.filteredSearchPagesArray = [NSMutableArray arrayWithCapacity:[filteredPages count]];
-                         weakSelf.pages = filteredPages;
-                         [weakSelf.tableView reloadData];
-                     }];
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Page"];
+//    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"language == %@ AND location == %@",
+//                              self.selectedLanguage, self.selectedLocation];
+    fetchRequest.sortDescriptors = @[
+        [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:NO]
+    ];
+    self.fetchedPages = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                            managedObjectContext:self.apiService.context
+                                                              sectionNameKeyPath:nil
+                                                                       cacheName:nil];
+    self.fetchedPages.delegate = self;
+    
+    NSError *fetchError = nil;
+    [self.fetchedPages performFetch:&fetchError];
+    if (fetchError != nil){
+        NSLog(@"Error fetching locations: %@", fetchError);
+    }
+    
+    [self updatePages];
+    
+    self.tableView.contentOffset = CGPointMake(0.0f, 45.0f);
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self.apiService updatePagesForLocation:self.selectedLocation language:self.selectedLanguage];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -49,7 +57,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     IGCustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellWithoutImage" forIndexPath:indexPath];
     
-    Page *page = self.pages[indexPath.row];
+    Page *page = self.pages[indexPath.item];
     
     cell.cellTitle.attributedText=[page descriptionText];
     
@@ -66,10 +74,30 @@
     pageVC.selectedPage = self.pages[indexPath.item];
 }
 
+
+#pragma mark Data
+
+- (void)updatePages
+{
+    if (self.pagesSearchBar.text.length > 0){
+        NSPredicate *predicate =
+        [NSPredicate predicateWithFormat:@"SELF.content contains[c] %@", self.pagesSearchBar.text];
+        
+        self.pages=[self.fetchedPages.fetchedObjects filteredArrayUsingPredicate:predicate];
+    }
+    else {
+        self.pages = self.fetchedPages.fetchedObjects;
+    }
+    
+    [self.tableView reloadData];
+}
+
+
 #pragma mark Search
 
 - (IBAction)searchPagesContent:(id)sender {
-    self.pagesSearchBar.hidden=NO;
+    [self.pagesSearchBar becomeFirstResponder];
+    self.tableView.contentOffset = CGPointMake(0.0f, -64.0f);
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
@@ -79,30 +107,13 @@
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-    self.pagesSearchBar.hidden=YES;
 }
 
 
 #pragma mark - UISearchDisplayController Delegate Methods
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText;
 {
-
-    NSPredicate *predicate =
-    [NSPredicate predicateWithFormat:@"SELF.content contains[c] %@",searchText];
-    
-    self.pages=[self.pages filteredArrayUsingPredicate:predicate];
-
-    [self.tableView reloadData];
-}
-
-#pragma mark Content Filtering
--(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
-    // Update the filtered array based on the search text and scope.
-    // Remove all objects from the filtered search array
-    [self.filteredSearchPagesArray removeAllObjects];
-    // Filter the array using NSPredicate
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name like[cd] %@",searchText];
-   self.filteredSearchPagesArray = [NSMutableArray arrayWithArray:[self.pages filteredArrayUsingPredicate:predicate]];
+    [self updatePages];
 }
 
 #pragma mark Collection View Delegate
@@ -117,5 +128,12 @@
 //    return frame.size.height;
 //}
 
+
+#pragma mark <NSFetchedResultsControllerDelegate>
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    [self updatePages];
+}
 
 @end

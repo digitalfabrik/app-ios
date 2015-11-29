@@ -12,7 +12,7 @@ typedef void(^GetLanguageImageCompletionBlock)(UIImage *image);
 
 + (nullable instancetype)findLanguageWithIdentifier:(NSString *)identifier inContext:(NSManagedObjectContext *)context;
 
-- (void)getImageWithCompletionHandler:(GetLanguageImageCompletionBlock)completion;
+- (void)loadIconImageIfNeeded;
 
 @end
 

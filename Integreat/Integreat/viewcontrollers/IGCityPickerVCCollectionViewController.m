@@ -10,36 +10,45 @@
 #import "SlimConnectionManager.h"
 #import "IGCustomCollectionViewCell.h"
 #import "IGLanguagePickerVC.h"
-@interface IGCityPickerVCCollectionViewController ()
 
-@property (strong, nonatomic) NSArray<Location *> *locations;
+
+@interface IGCityPickerVCCollectionViewController () <NSFetchedResultsControllerDelegate>
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedLocations;
+@property (strong, nonatomic) NSArray *changes;
 
 @end
+
 
 @implementation IGCityPickerVCCollectionViewController
 
 static NSString * const reuseIdentifier = @"Cell";
 
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-    
-    self.locations = @[];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    typeof(self) weakSelf = self;
-    [self.apiService fetchLocationsWithCompletionHandler:^(NSArray<Location *> * _Nullable locations, NSError * _Nullable error) {
-        weakSelf.locations = locations;
-        [weakSelf.collectionView reloadData];
-    }];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Location"];
+    fetchRequest.sortDescriptors = @[
+        [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]
+    ];
+    self.fetchedLocations = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                managedObjectContext:self.apiService.context
+                                                                  sectionNameKeyPath:nil
+                                                                           cacheName:nil];
+    self.fetchedLocations.delegate = self;
+    
+    NSError *fetchError = nil;
+    [self.fetchedLocations performFetch:&fetchError];
+    if (fetchError != nil){
+        NSLog(@"Error fetching locations: %@", fetchError);
+    }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self.apiService updateLocations];
 }
 
 
@@ -55,7 +64,7 @@ static NSString * const reuseIdentifier = @"Cell";
         IGLanguagePickerVC *vc = [segue destinationViewController];
         IGCustomCollectionViewCell* selectedCell=(IGCustomCollectionViewCell*)sender;
         NSIndexPath *indexPath = [self.collectionView indexPathForCell:selectedCell];
-        vc.selectedLocation= self.locations[indexPath.item];
+        vc.selectedLocation= [self.fetchedLocations objectAtIndexPath:indexPath];
         vc.apiService = self.apiService;
     }
 }
@@ -64,27 +73,28 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
+    return self.fetchedLocations.sections.count;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.locations.count;
+    id<NSFetchedResultsSectionInfo> sectionInfo = self.fetchedLocations.sections[section];
+    return [sectionInfo numberOfObjects];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     IGCustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    Location *location = self.locations[indexPath.item];
+    Location *location = [self.fetchedLocations objectAtIndexPath:indexPath];
     
     cell.cellTitle.text= location.name;
     
-    [location getImageWithCompletionHandler:^(UIImage * _Nonnull image) {
-        cell.cellImage.image = image;
-    }];
+    [location loadIconImageIfNeeded];
+    cell.cellImage.image = location.iconImage;
     
     return cell;
 }
+
 
 #pragma mark <UICollectionViewDelegate>
 
@@ -95,33 +105,47 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
+#pragma mark <NSFetchedResultsControllerDelegate>
 
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
+{
+    self.changes = @[];
 }
 
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
+{
+    [self.collectionView reloadData];
 }
 
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
+{
+    void(^change)() = ^{
+        switch (type) {
+            case NSFetchedResultsChangeInsert:
+                [self.collectionView insertItemsAtIndexPaths:@[ newIndexPath ]];
+                break;
+            case NSFetchedResultsChangeDelete:
+                [self.collectionView deleteItemsAtIndexPaths:@[ indexPath ]];
+                break;
+            case NSFetchedResultsChangeUpdate:
+                [self.collectionView reloadItemsAtIndexPaths:@[ indexPath ]];
+                break;
+            case NSFetchedResultsChangeMove:
+                [self.collectionView moveItemAtIndexPath:indexPath toIndexPath:newIndexPath];
+                break;
+        }
+    };
+    self.changes = [self.changes arrayByAddingObject:change];
 }
-*/
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    [self.collectionView performBatchUpdates:^{
+        for (void(^change)() in self.changes){
+            change();
+        }
+    } completion:nil];
+    self.changes = nil;
+}
 
 @end

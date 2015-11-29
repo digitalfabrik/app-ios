@@ -24,6 +24,7 @@ extension Location {
         }
         location.color = json["color"] as? String
         location.name = json["name"] as? String
+        location.coverImageUrl = (json["cover_image"] as? String).flatMap(NSURL.init)
         location.iconImageUrl = (json["icon"] as? String).flatMap(NSURL.init)
     }
     
