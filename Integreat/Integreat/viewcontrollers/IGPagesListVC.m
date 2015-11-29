@@ -57,11 +57,14 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    IGCustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellWithoutImage" forIndexPath:indexPath];
-    
     Page *page = self.pages[indexPath.item];
     
+    NSString *resuseIdentifier = (page.thumbnailImageUrl != nil)
+        ? @"cellWitImage" : @"cellWithoutImage";
+    
+    IGCustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellWithoutImage" forIndexPath:indexPath];
     cell.cellTitle.attributedText=[page descriptionText];
+    cell.cellImage.image = page.thumbnailImage;
     
     return cell;
 }
@@ -118,7 +121,7 @@
     [self updatePages];
 }
 
-#pragma mark Collection View Delegate
+#pragma mark Table View Delegate
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 //{
@@ -129,6 +132,14 @@
 //                                      context:nil];
 //    return frame.size.height;
 //}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Page *page = self.pages[indexPath.item];
+    [page loadThumbnailImageWithCompletionHandler:^(UIImage * _Nonnull image) {
+        ((IGCustomTableViewCell *)cell).imageView.image = image;
+    }];
+}
 
 
 #pragma mark <NSFetchedResultsControllerDelegate>
