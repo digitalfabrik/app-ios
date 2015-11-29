@@ -51,25 +51,6 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    if ([[segue identifier] isEqualToString:@"pagesSeg"])
-    {
-        // Get reference to the destination view controller
-        IGPagesListVC *vc = [segue destinationViewController];
-        IGCustomCollectionViewCell* selectedCell=(IGCustomCollectionViewCell*)sender;
-        NSIndexPath *indexPath = [self.collectionView indexPathForCell:selectedCell];
-        vc.selectedLocation= self.selectedLocation;
-        vc.selectedLanguage= [self.fetchedLanguages objectAtIndexPath:indexPath];
-        vc.apiService = self.apiService;
-    }
-}
-
-
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -100,6 +81,15 @@ static NSString * const reuseIdentifier = @"Cell";
 {
     CGFloat dimens = collectionView.bounds.size.width * 0.4;
     return CGSizeMake(dimens, dimens);
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    Language *language = [self.fetchedLanguages objectAtIndexPath:indexPath];
+    [[NSUserDefaults standardUserDefaults] setObject:self.selectedLocation.identifier forKey:@"location"];
+    [[NSUserDefaults standardUserDefaults] setObject:language.identifier forKey:@"language"];
+    
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
 

@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "IGApiService.h"
-#import "IGCityPickerVCCollectionViewController.h"
+#import "IGPagesListVC.h"
 
 @interface AppDelegate ()
 
@@ -25,8 +25,8 @@
     self.apiService = [[IGApiService alloc] initWithContext:self.managedObjectContext];
     
     UINavigationController *navigationController = (id)self.window.rootViewController;
-    IGCityPickerVCCollectionViewController *cityPickerVC = (id)navigationController.topViewController;
-    cityPickerVC.apiService = self.apiService;
+    IGPagesListVC *pagesListVC = (id)navigationController.topViewController;
+    pagesListVC.apiService = self.apiService;
     
     return YES;
 }
@@ -54,6 +54,7 @@
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
 }
+
 
 #pragma mark - Core Data stack
 

@@ -2,6 +2,7 @@
 #import "IGCustomTableViewCell.h"
 #import "IGPageVC.h"
 #import "Integreat-Swift.h"
+#import "IGCityPickerVCCollectionViewController.h"
 
 @interface IGPagesListVC() <NSFetchedResultsControllerDelegate>
     @property (strong,nonatomic) NSArray *pages;
@@ -13,6 +14,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self updateFromUserDefaults];
+    if (self.selectedLanguage == nil || self.selectedLocation == nil){
+        [self performSegueWithIdentifier:@"changeSegWithoutAnimation" sender:self];
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self updateFromUserDefaults];
+    if (self.selectedLanguage == nil || self.selectedLocation == nil){
+        return;
+    }
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Page"];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"language == %@ AND location == %@",
@@ -34,14 +50,9 @@
     
     [self updatePages];
     
-    self.tableView.contentOffset = CGPointMake(0.0f, 45.0f);
+    self.tableView.contentOffset = CGPointMake(0.0f, self.pagesSearchBar.frame.size.height);
     
     self.navigationItem.title = self.selectedLocation.name;
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
     
     [self.apiService updatePagesForLocation:self.selectedLocation language:self.selectedLanguage];
 }
@@ -70,10 +81,17 @@
 {
     [super prepareForSegue:segue sender:sender];
     
-    IGCustomTableViewCell *cell = sender;
-    IGPageVC *pageVC = segue.destinationViewController;
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    pageVC.selectedPage = self.pages[indexPath.item];
+    if ([segue.identifier isEqualToString:@"segPage"]){
+        IGCustomTableViewCell *cell = sender;
+        IGPageVC *pageVC = segue.destinationViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        pageVC.selectedPage = self.pages[indexPath.item];
+    }
+    else if ([segue.identifier isEqualToString:@"changeSeg"] || [segue.identifier isEqualToString:@"changeSegWithoutAnimation"]){
+        UINavigationController *nc = segue.destinationViewController;
+        IGCityPickerVCCollectionViewController *vc = (id)nc.topViewController;
+        vc.apiService = self.apiService;
+    }
 }
 
 
@@ -92,6 +110,18 @@
     }
     
     [self.tableView reloadData];
+}
+
+- (void)updateFromUserDefaults
+{
+    NSString *locationId = [[NSUserDefaults standardUserDefaults] objectForKey:@"location"];
+    if (locationId != nil){
+        self.selectedLocation = [Location findLocationWithIdentifier:locationId inContext:self.apiService.context];
+    }
+    NSString *languageId = [[NSUserDefaults standardUserDefaults] objectForKey:@"language"];
+    if (languageId != nil){
+        self.selectedLanguage = [Language findLanguageWithIdentifier:languageId inContext:self.apiService.context];
+    }
 }
 
 
