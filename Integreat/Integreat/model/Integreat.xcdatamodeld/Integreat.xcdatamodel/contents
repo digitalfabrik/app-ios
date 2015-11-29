@@ -7,7 +7,7 @@
         <attribute name="nativeName" attributeType="String" syncable="YES"/>
         <attribute name="resourceName" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Location" inverseName="languages" inverseEntity="Location" syncable="YES"/>
-        <relationship name="pages" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Page" inverseName="language" inverseEntity="Page" syncable="YES"/>
+        <relationship name="pages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Page" inverseName="language" inverseEntity="Page" syncable="YES"/>
     </entity>
     <entity name="Location" representedClassName="Location" syncable="YES">
         <attribute name="color" attributeType="String" syncable="YES"/>
@@ -19,7 +19,7 @@
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="resourceName" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="languages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Language" inverseName="locations" inverseEntity="Language" syncable="YES"/>
-        <relationship name="pages" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Page" inverseName="location" inverseEntity="Page" syncable="YES"/>
+        <relationship name="pages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Page" inverseName="location" inverseEntity="Page" syncable="YES"/>
     </entity>
     <entity name="Page" representedClassName="Page" syncable="YES">
         <attribute name="content" attributeType="String" syncable="YES"/>

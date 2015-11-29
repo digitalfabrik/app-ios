@@ -71,10 +71,8 @@
         }
         
         NSArray *pages = [Page pagesWithJson:pagesJson inContext:weakSelf.context];
-        for (Page *page in pages) {
-            page.location = location;
-            page.language = language;
-        }
+        [[location mutableSetValueForKey:@"pages"] addObjectsFromArray:pages];
+        [[language mutableSetValueForKey:@"pages"] addObjectsFromArray:pages];
         
         NSError *saveError = nil;
         [weakSelf.context save:&saveError];

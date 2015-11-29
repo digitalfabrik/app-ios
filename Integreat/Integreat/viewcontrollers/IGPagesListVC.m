@@ -15,8 +15,8 @@
     [super viewDidLoad];
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Page"];
-//    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"language == %@ AND location == %@",
-//                              self.selectedLanguage, self.selectedLocation];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"language == %@ AND location == %@",
+                              self.selectedLanguage, self.selectedLocation];
     fetchRequest.sortDescriptors = @[
         [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:NO]
     ];
@@ -35,6 +35,8 @@
     [self updatePages];
     
     self.tableView.contentOffset = CGPointMake(0.0f, 45.0f);
+    
+    self.navigationItem.title = self.selectedLocation.name;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -97,7 +99,7 @@
 
 - (IBAction)searchPagesContent:(id)sender {
     [self.pagesSearchBar becomeFirstResponder];
-    self.tableView.contentOffset = CGPointMake(0.0f, -64.0f);
+    self.tableView.contentOffset = CGPointMake(0.0f, -20.0f);
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
