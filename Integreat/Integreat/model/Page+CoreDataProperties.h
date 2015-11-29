@@ -1,4 +1,5 @@
 #import "Page.h"
+#import <UIKit/UIKit.h>
 NS_ASSUME_NONNULL_BEGIN
 
 
@@ -10,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *title;
 @property (nullable, nonatomic, retain) NSDate *lastModified;
 @property (nullable, nonatomic, retain) NSString *order;
+@property (nullable, nonatomic, retain) NSURL *thumbnailImageUrl;
+@property (nullable, nonatomic, retain) UIImage *thumbnailImage;
 
 @property (nullable, nonatomic, retain) Language *language;
 @property (nullable, nonatomic, retain) Location *location;
