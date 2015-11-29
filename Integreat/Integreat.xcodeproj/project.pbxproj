@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		530C06D18C19850DD079C41E /* libPods-Integreat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF589977D38557069F4D46C /* libPods-Integreat.a */; };
 		833D18561C09C85F0027D604 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18551C09C85F0027D604 /* main.m */; };
 		833D18591C09C85F0027D604 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18581C09C85F0027D604 /* AppDelegate.m */; };
 		833D185F1C09C85F0027D604 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 833D185D1C09C85F0027D604 /* Main.storyboard */; };
 		833D18641C09C85F0027D604 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 833D18631C09C85F0027D604 /* Assets.xcassets */; };
 		833D18671C09C85F0027D604 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 833D18651C09C85F0027D604 /* LaunchScreen.storyboard */; };
 		833D18721C09D8530027D604 /* Integreat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 833D18701C09D8530027D604 /* Integreat.xcdatamodeld */; };
-		833D18751C09D9780027D604 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18741C09D9780027D604 /* ViewController.m */; };
 		833D18BF1C09E25A0027D604 /* Language+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18B41C09E25A0027D604 /* Language+CoreDataProperties.m */; };
 		833D18C01C09E25A0027D604 /* Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18B61C09E25A0027D604 /* Language.m */; };
 		833D18C11C09E25A0027D604 /* Page+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18B81C09E25A0027D604 /* Page+CoreDataProperties.m */; };
@@ -27,11 +27,15 @@
 		833D18E61C0A17E80027D604 /* IGPagesListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18E51C0A17E80027D604 /* IGPagesListVC.m */; };
 		833D18EF1C0A25E40027D604 /* IGCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18EE1C0A25E40027D604 /* IGCustomTableViewCell.m */; };
 		833D18F21C0A25ED0027D604 /* IGPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18F11C0A25ED0027D604 /* IGPageVC.m */; };
+		833D18F41C0A30BF0027D604 /* Page+Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D18F31C0A30BF0027D604 /* Page+Texts.swift */; };
+		833D18F71C0A45180027D604 /* TextUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D18F61C0A45180027D604 /* TextUtils.swift */; };
+		833D18FC1C0A4B760027D604 /* IGDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D18FB1C0A4B760027D604 /* IGDataSource.swift */; };
 		A11E27021C09E9C50012312D /* SlimConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27011C09E9C50012312D /* SlimConnectionManager.m */; };
 		A11E270A1C09EE4C0012312D /* IntegreatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27091C09EE4C0012312D /* IntegreatTests.m */; };
 		A11E27131C09F35C0012312D /* IGCityPickerVCCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27121C09F35C0012312D /* IGCityPickerVCCollectionViewController.m */; };
 		A11E27161C09F3D90012312D /* IGLanguagePickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27151C09F3D90012312D /* IGLanguagePickerVC.m */; };
 		A11E271A1C09FE800012312D /* IGCustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27181C09F6510012312D /* IGCustomCollectionViewCell.m */; };
+		F315BB144633937052C27556 /* libPods-IntegreatTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A77173C64C5A1F111DDC5641 /* libPods-IntegreatTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		26295AAB570950CBEB3D13E2 /* Pods-IntegreatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntegreatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IntegreatTests/Pods-IntegreatTests.debug.xcconfig"; sourceTree = "<group>"; };
+		486539C113595BFB86853FA9 /* Pods-IntegreatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntegreatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IntegreatTests/Pods-IntegreatTests.release.xcconfig"; sourceTree = "<group>"; };
+		492A7F5A1680FFC52A40D43C /* Pods-Integreat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Integreat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Integreat/Pods-Integreat.debug.xcconfig"; sourceTree = "<group>"; };
+		583205E28F2D24764BA868E9 /* Pods-Integreat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Integreat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Integreat/Pods-Integreat.release.xcconfig"; sourceTree = "<group>"; };
+		6FF589977D38557069F4D46C /* libPods-Integreat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Integreat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		833D18511C09C85F0027D604 /* Integreat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Integreat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		833D18551C09C85F0027D604 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		833D18571C09C85F0027D604 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -54,8 +63,6 @@
 		833D18661C09C85F0027D604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		833D18681C09C85F0027D604 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		833D18711C09D8530027D604 /* Integreat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Integreat.xcdatamodel; sourceTree = "<group>"; };
-		833D18731C09D9780027D604 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = viewcontrollers/ViewController.h; sourceTree = "<group>"; };
-		833D18741C09D9780027D604 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = viewcontrollers/ViewController.m; sourceTree = "<group>"; };
 		833D189A1C09E18A0027D604 /* Integreat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Integreat-Bridging-Header.h"; sourceTree = "<group>"; };
 		833D18B31C09E25A0027D604 /* Language+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Language+CoreDataProperties.h"; path = "model/Language+CoreDataProperties.h"; sourceTree = "<group>"; };
 		833D18B41C09E25A0027D604 /* Language+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Language+CoreDataProperties.m"; path = "model/Language+CoreDataProperties.m"; sourceTree = "<group>"; };
@@ -80,6 +87,9 @@
 		833D18EE1C0A25E40027D604 /* IGCustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGCustomTableViewCell.m; path = viewcontrollers/IGCustomTableViewCell.m; sourceTree = "<group>"; };
 		833D18F01C0A25ED0027D604 /* IGPageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IGPageVC.h; path = viewcontrollers/IGPageVC.h; sourceTree = "<group>"; };
 		833D18F11C0A25ED0027D604 /* IGPageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGPageVC.m; path = viewcontrollers/IGPageVC.m; sourceTree = "<group>"; };
+		833D18F31C0A30BF0027D604 /* Page+Texts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Page+Texts.swift"; path = "model/Page+Texts.swift"; sourceTree = "<group>"; };
+		833D18F61C0A45180027D604 /* TextUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextUtils.swift; path = utils/TextUtils.swift; sourceTree = "<group>"; };
+		833D18FB1C0A4B760027D604 /* IGDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGDataSource.swift; sourceTree = "<group>"; };
 		A11E27001C09E9C50012312D /* SlimConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlimConnectionManager.h; path = connectionManger/SlimConnectionManager.h; sourceTree = "<group>"; };
 		A11E27011C09E9C50012312D /* SlimConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlimConnectionManager.m; path = connectionManger/SlimConnectionManager.m; sourceTree = "<group>"; };
 		A11E27071C09EE4C0012312D /* IntegreatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegreatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +101,7 @@
 		A11E27151C09F3D90012312D /* IGLanguagePickerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGLanguagePickerVC.m; path = viewcontrollers/IGLanguagePickerVC.m; sourceTree = "<group>"; };
 		A11E27171C09F6510012312D /* IGCustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IGCustomCollectionViewCell.h; path = viewcontrollers/IGCustomCollectionViewCell.h; sourceTree = "<group>"; };
 		A11E27181C09F6510012312D /* IGCustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGCustomCollectionViewCell.m; path = viewcontrollers/IGCustomCollectionViewCell.m; sourceTree = "<group>"; };
+		A77173C64C5A1F111DDC5641 /* libPods-IntegreatTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IntegreatTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				530C06D18C19850DD079C41E /* libPods-Integreat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F315BB144633937052C27556 /* libPods-IntegreatTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +130,8 @@
 				833D18531C09C85F0027D604 /* Integreat */,
 				A11E27081C09EE4C0012312D /* IntegreatTests */,
 				833D18521C09C85F0027D604 /* Products */,
+				A7A1F704B93B33DC02ED32C1 /* Pods */,
+				CE8DC57ED3FF2DB4A60C2BA0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,8 +149,10 @@
 			children = (
 				833D18D31C09F96A0027D604 /* api */,
 				A11E26FF1C09E9AF0012312D /* connectionmanager */,
+				833D18FA1C0A4B600027D604 /* data */,
 				833D186F1C09D8480027D604 /* model */,
 				833D186E1C09CD630027D604 /* viewcontrollers */,
+				833D18F51C0A45050027D604 /* utils */,
 				833D18571C09C85F0027D604 /* AppDelegate.h */,
 				833D18581C09C85F0027D604 /* AppDelegate.m */,
 				833D185D1C09C85F0027D604 /* Main.storyboard */,
@@ -161,8 +178,6 @@
 			children = (
 				A11E27111C09F35C0012312D /* IGCityPickerVCCollectionViewController.h */,
 				A11E27121C09F35C0012312D /* IGCityPickerVCCollectionViewController.m */,
-				833D18731C09D9780027D604 /* ViewController.h */,
-				833D18741C09D9780027D604 /* ViewController.m */,
 				A11E27141C09F3D90012312D /* IGLanguagePickerVC.h */,
 				A11E27151C09F3D90012312D /* IGLanguagePickerVC.m */,
 				833D18E41C0A17E80027D604 /* IGPagesListVC.h */,
@@ -191,6 +206,7 @@
 				833D18B71C09E25A0027D604 /* Page+CoreDataProperties.h */,
 				833D18B81C09E25A0027D604 /* Page+CoreDataProperties.m */,
 				833D18D11C09F75B0027D604 /* Page+JsonMapping.swift */,
+				833D18F31C0A30BF0027D604 /* Page+Texts.swift */,
 				833D18BD1C09E25A0027D604 /* Location.h */,
 				833D18BE1C09E25A0027D604 /* Location.m */,
 				833D18BB1C09E25A0027D604 /* Location+CoreDataProperties.h */,
@@ -207,6 +223,22 @@
 				833D18DE1C0A0D8B0027D604 /* IGApiService.m */,
 			);
 			name = api;
+			sourceTree = "<group>";
+		};
+		833D18F51C0A45050027D604 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				833D18F61C0A45180027D604 /* TextUtils.swift */,
+			);
+			name = utils;
+			sourceTree = "<group>";
+		};
+		833D18FA1C0A4B600027D604 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				833D18FB1C0A4B760027D604 /* IGDataSource.swift */,
+			);
+			name = data;
 			sourceTree = "<group>";
 		};
 		A11E26FF1C09E9AF0012312D /* connectionmanager */ = {
@@ -227,6 +259,26 @@
 			path = IntegreatTests;
 			sourceTree = "<group>";
 		};
+		A7A1F704B93B33DC02ED32C1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				492A7F5A1680FFC52A40D43C /* Pods-Integreat.debug.xcconfig */,
+				583205E28F2D24764BA868E9 /* Pods-Integreat.release.xcconfig */,
+				26295AAB570950CBEB3D13E2 /* Pods-IntegreatTests.debug.xcconfig */,
+				486539C113595BFB86853FA9 /* Pods-IntegreatTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CE8DC57ED3FF2DB4A60C2BA0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6FF589977D38557069F4D46C /* libPods-Integreat.a */,
+				A77173C64C5A1F111DDC5641 /* libPods-IntegreatTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -234,9 +286,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 833D186B1C09C85F0027D604 /* Build configuration list for PBXNativeTarget "Integreat" */;
 			buildPhases = (
+				F1EB77F42D7F457D6C381425 /* Check Pods Manifest.lock */,
 				833D184D1C09C85F0027D604 /* Sources */,
 				833D184E1C09C85F0027D604 /* Frameworks */,
 				833D184F1C09C85F0027D604 /* Resources */,
+				FB0B4BBD3A391C908DFC603C /* Embed Pods Frameworks */,
+				E14F183C478FB96F83E0A788 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,9 +306,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A11E27101C09EE4C0012312D /* Build configuration list for PBXNativeTarget "IntegreatTests" */;
 			buildPhases = (
+				D91C1D57122C7226F65959CC /* Check Pods Manifest.lock */,
 				A11E27031C09EE4C0012312D /* Sources */,
 				A11E27041C09EE4C0012312D /* Frameworks */,
 				A11E27051C09EE4C0012312D /* Resources */,
+				F56CC07AEF0C2660E32ADB97 /* Embed Pods Frameworks */,
+				C1A0DBF803F6A94602BA7461 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -323,6 +381,99 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C1A0DBF803F6A94602BA7461 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IntegreatTests/Pods-IntegreatTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D91C1D57122C7226F65959CC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E14F183C478FB96F83E0A788 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Integreat/Pods-Integreat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1EB77F42D7F457D6C381425 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F56CC07AEF0C2660E32ADB97 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IntegreatTests/Pods-IntegreatTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB0B4BBD3A391C908DFC603C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Integreat/Pods-Integreat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		833D184D1C09C85F0027D604 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -331,15 +482,16 @@
 				833D18591C09C85F0027D604 /* AppDelegate.m in Sources */,
 				833D18CE1C09F74A0027D604 /* Language+JsonMapping.swift in Sources */,
 				833D18D01C09F7560027D604 /* Location+JsonMapping.swift in Sources */,
-				833D18751C09D9780027D604 /* ViewController.m in Sources */,
 				A11E27131C09F35C0012312D /* IGCityPickerVCCollectionViewController.m in Sources */,
 				833D18561C09C85F0027D604 /* main.m in Sources */,
 				833D18D21C09F75B0027D604 /* Page+JsonMapping.swift in Sources */,
+				833D18F71C0A45180027D604 /* TextUtils.swift in Sources */,
 				833D18F21C0A25ED0027D604 /* IGPageVC.m in Sources */,
 				833D18C31C09E25A0027D604 /* Location+CoreDataProperties.m in Sources */,
 				833D18C01C09E25A0027D604 /* Language.m in Sources */,
 				833D18E61C0A17E80027D604 /* IGPagesListVC.m in Sources */,
 				833D18C11C09E25A0027D604 /* Page+CoreDataProperties.m in Sources */,
+				833D18FC1C0A4B760027D604 /* IGDataSource.swift in Sources */,
 				A11E271A1C09FE800012312D /* IGCustomCollectionViewCell.m in Sources */,
 				833D18EF1C0A25E40027D604 /* IGCustomTableViewCell.m in Sources */,
 				833D18C41C09E25A0027D604 /* Location.m in Sources */,
@@ -349,6 +501,7 @@
 				A11E27021C09E9C50012312D /* SlimConnectionManager.m in Sources */,
 				833D18C21C09E25A0027D604 /* Page.m in Sources */,
 				833D18721C09D8530027D604 /* Integreat.xcdatamodeld in Sources */,
+				833D18F41C0A30BF0027D604 /* Page+Texts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +627,7 @@
 		};
 		833D186C1C09C85F0027D604 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 492A7F5A1680FFC52A40D43C /* Pods-Integreat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -490,6 +644,7 @@
 		};
 		833D186D1C09C85F0027D604 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 583205E28F2D24764BA868E9 /* Pods-Integreat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -505,6 +660,7 @@
 		};
 		A11E270E1C09EE4C0012312D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26295AAB570950CBEB3D13E2 /* Pods-IntegreatTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = IntegreatTests/Info.plist;
@@ -517,6 +673,7 @@
 		};
 		A11E270F1C09EE4C0012312D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 486539C113595BFB86853FA9 /* Pods-IntegreatTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = IntegreatTests/Info.plist;

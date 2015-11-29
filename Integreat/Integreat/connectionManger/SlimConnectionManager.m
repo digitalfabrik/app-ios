@@ -1,16 +1,8 @@
-//
-//  SlimConnectionManager.m
-//  Integreat
-//
-//  Created by Hazem Safetli on 28/11/15.
-//  Copyright © 2015 Integreat. All rights reserved.
-//
-
 #import "SlimConnectionManager.h"
 
 
-
 @implementation SlimConnectionManager
+
 NSString* serverURL=@"http://vmkrcmar21.informatik.tu-muenchen.de/wordpress";
 //http://vmkrcmar21.informatik.tu-muenchen.de/wordpress
 
@@ -21,57 +13,59 @@ NSString* serverURL=@"http://vmkrcmar21.informatik.tu-muenchen.de/wordpress";
     return self;
 }
 
--(void)getPages:(NSString*)location forLanguage:(NSString*)language withCompletionHandler:(GetArrayCompletionHandler)completion
+- (RACSignal *)getJsonForURL:(NSURL *)url
 {
-    //TODO: change since
-    NSString* pagesURL=[NSString stringWithFormat:@"%@/%@/%@/wp-json/extensions/v0/modified_content/pages?since=2010-11-15T16:39:45%%2B0000",serverURL,location,language];
-
     NSURLSession *session = [NSURLSession sharedSession];
-    [[session dataTaskWithURL:[NSURL URLWithString:pagesURL]
-            completionHandler:^(NSData *data,
-                                NSURLResponse *response,
-                                NSError *error) {
-                NSError *parseErr;
-                id pkg=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&parseErr];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    completion(pkg, nil);
-                });
-            }] resume];
-}
-
--(void)getLocationsWithCompletionHandler:(GetArrayCompletionHandler)completion
-{
-    NSString* pagesURL=[NSString stringWithFormat:@"%@/wp-json/extensions/v0/multisites/",serverURL];
     
-    NSURLSession *session = [NSURLSession sharedSession];
-    [[session dataTaskWithURL:[NSURL URLWithString:pagesURL]
-            completionHandler:^(NSData *data,
-                                NSURLResponse *response,
-                                NSError *error) {
-                NSError *parseErr;
-                id pkg = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseErr];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    completion(pkg, nil);
-                });
-            }] resume];
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        NSURLSessionDataTask *task = [session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            if (error != nil){
+                [subscriber sendError:error];
+                return;
+            }
+            
+            NSError *parseErr;
+            NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&parseErr];
+            if (parseErr != nil){
+                [subscriber sendError:parseErr];
+                return;
+            }
+            for (NSDictionary *json in jsonArray) {
+                [subscriber sendNext:json];
+            }
+            [subscriber sendCompleted];
+        }];
+        
+        [task resume];
+        
+        return [RACDisposable disposableWithBlock:^{
+            [task cancel];
+        }];
+    }];
 }
 
--(void)getLangauges:(NSString*)city withCompletionHandler:(GetArrayCompletionHandler)completion
+- (RACSignal *)getLocations
 {
-    NSString* pagesURL=[NSString stringWithFormat:@"%@/%@/de/wp-json/extensions/v0/languages/wpml",serverURL,city];
-    
-    NSURLSession *session = [NSURLSession sharedSession];
-    [[session dataTaskWithURL:[NSURL URLWithString:pagesURL]
-            completionHandler:^(NSData *data,
-                                NSURLResponse *response,
-                                NSError *error) {
-                NSError *parseErr;
-                id pkg=[NSJSONSerialization JSONObjectWithData:data options:0 error:&parseErr];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    completion(pkg, nil);
-                });
-            }] resume];
+    NSString *urlString = [NSString stringWithFormat:@"%@/wp-json/extensions/v0/multisites/",serverURL];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    return [self getJsonForURL:url];
 }
 
+- (RACSignal *)getLanguagesForCity:(NSString*)city
+{
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@/de/wp-json/extensions/v0/languages/wpml",serverURL,city];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    return [self getJsonForURL:url];
+}
+
+- (RACSignal *)getPagesForLocation:(NSString*)location language:(NSString*)language sinceDate:(NSDate *)date
+{
+    // TODO: Add date!
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@/wp-json/extensions/v0/modified_content/pages?since=2010-11-15T16:39:45%%2B0000",
+                           serverURL,location,language];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    return [self getJsonForURL:url];
+}
 
 @end

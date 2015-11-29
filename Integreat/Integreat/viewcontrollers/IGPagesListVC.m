@@ -1,9 +1,13 @@
 #import "IGPagesListVC.h"
 #import "IGCustomTableViewCell.h"
 #import "IGPageVC.h"
+#import "Integreat-Swift.h"
 
 
 @implementation IGPagesListVC
+
+
+#pragma mark Lifecycle
 
 - (void)awakeFromNib
 {
@@ -24,6 +28,18 @@
                      }];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [super prepareForSegue:segue sender:sender];
+    
+    IGCustomTableViewCell *cell = sender;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    IGPageVC *pageVC = segue.destinationViewController;
+    pageVC.selectedPage = self.pages[indexPath.item];
+}
+
+
+#pragma mark Collection View Data Source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -38,21 +54,23 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     IGCustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellWithoutImage" forIndexPath:indexPath];
     
-    Page *page = self.pages[indexPath.row];
-    
-    cell.cellTitle.text=[page title];
+    Page *page = self.pages[indexPath.item];
+    cell.cellTitle.attributedText = page.descriptionText;
     
     return cell;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+
+#pragma mark Collection View Delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [super prepareForSegue:segue sender:sender];
-    
-    IGCustomTableViewCell *cell = sender;
-    IGPageVC *pageVC = segue.destinationViewController;
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    pageVC.selectedPage = self.pages[indexPath.item];
+    Page *page = self.pages[indexPath.item];
+    NSAttributedString *text = page.descriptionText;
+    CGRect frame = [text boundingRectWithSize:CGSizeMake(tableView.bounds.size.width, CGFLOAT_MAX)
+                                      options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
+                                      context:nil];
+    return frame.size.height;
 }
 
 @end

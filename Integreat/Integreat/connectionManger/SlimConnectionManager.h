@@ -1,22 +1,16 @@
-//
-//  SlimConnectionManager.h
-//  Integreat
-//
-//  Created by Hazem Safetli on 28/11/15.
-//  Copyright © 2015 Integreat. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
-typedef void(^GetArrayCompletionHandler)(NSArray *resut, NSError *error);
 
+@interface SlimConnectionManager: NSObject
 
-@interface SlimConnectionManager : NSObject
+/// Gets locations as JSON dictionaries
+-(RACSignal *)getLocations;
 
--(void)getPages:(NSString*)location forLanguage:(NSString*)language withCompletionHandler:(GetArrayCompletionHandler)completion;
+/// Gets languages as JSON dictionaries
+-(RACSignal *)getLanguagesForCity:(NSString *)city;
 
--(void)getLocationsWithCompletionHandler:(GetArrayCompletionHandler)completion;
-
--(void)getLangauges:(NSString*)city withCompletionHandler:(GetArrayCompletionHandler)completion;
+/// Gets pages as JSON dictionaries
+- (RACSignal *)getPagesForLocation:(NSString *)location language:(NSString *)language sinceDate:(NSDate *)date;
 
 @end
