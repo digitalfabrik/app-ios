@@ -3,6 +3,9 @@
 #import "IGPageVC.h"
 #import "Integreat-Swift.h"
 
+@interface IGPagesListVC()
+    @property (strong,nonatomic) NSMutableArray *filteredSearchPagesArray;
+@end
 
 @implementation IGPagesListVC
 
@@ -15,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     typeof(self) weakSelf = self;
     [self.apiService fetchPagesForLocation:self.selectedLocation
                                   language:self.selectedLanguage
@@ -26,6 +29,7 @@
                                  [filteredPages addObject:page];
                              }
                          }
+                         weakSelf.filteredSearchPagesArray = [NSMutableArray arrayWithCapacity:[filteredPages count]];
                          weakSelf.pages = filteredPages;
                          [weakSelf.tableView reloadData];
                      }];
@@ -62,6 +66,44 @@
     pageVC.selectedPage = self.pages[indexPath.item];
 }
 
+#pragma mark Search
+
+- (IBAction)searchPagesContent:(id)sender {
+    self.pagesSearchBar.hidden=NO;
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    self.pagesSearchBar.hidden=YES;
+}
+
+
+#pragma mark - UISearchDisplayController Delegate Methods
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText;
+{
+
+    NSPredicate *predicate =
+    [NSPredicate predicateWithFormat:@"SELF.content contains[c] %@",searchText];
+    
+    self.pages=[self.pages filteredArrayUsingPredicate:predicate];
+
+    [self.tableView reloadData];
+}
+
+#pragma mark Content Filtering
+-(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
+    // Update the filtered array based on the search text and scope.
+    // Remove all objects from the filtered search array
+    [self.filteredSearchPagesArray removeAllObjects];
+    // Filter the array using NSPredicate
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name like[cd] %@",searchText];
+   self.filteredSearchPagesArray = [NSMutableArray arrayWithArray:[self.pages filteredArrayUsingPredicate:predicate]];
+}
 
 #pragma mark Collection View Delegate
 
@@ -74,5 +116,6 @@
 //                                      context:nil];
 //    return frame.size.height;
 //}
+
 
 @end

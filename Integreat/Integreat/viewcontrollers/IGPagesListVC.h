@@ -4,12 +4,13 @@
 #import "Language.h"
 
 
-@interface IGPagesListVC : UITableViewController
+@interface IGPagesListVC : UITableViewController<UISearchBarDelegate>
 
 @property (strong, nonatomic) IGApiService *apiService;
 @property (strong, nonatomic) Location *selectedLocation;
 @property (strong, nonatomic) Language *selectedLanguage;
 
 @property (strong, nonatomic) NSArray<Page *> *pages;
+@property (strong, nonatomic) IBOutlet UISearchBar *pagesSearchBar;
 
 @end

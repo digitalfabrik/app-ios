@@ -219,9 +219,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" hidden="YES" contentMode="redraw" showsCancelButton="YES" id="gKS-6g-Peg">
+                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="3Ot-0T-awx" id="fVG-TK-RON"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellWithImage" rowHeight="80" id="JDB-2a-ivj" customClass="IGCustomTableViewCell">
-                                <rect key="frame" x="0.0" y="92" width="600" height="80"/>
+                                <rect key="frame" x="0.0" y="136" width="600" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JDB-2a-ivj" id="dss-YG-o4V">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
@@ -260,7 +269,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellWithoutImage" rowHeight="80" id="Z39-uI-cVN" customClass="IGCustomTableViewCell">
-                                <rect key="frame" x="0.0" y="172" width="600" height="80"/>
+                                <rect key="frame" x="0.0" y="216" width="600" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z39-uI-cVN" id="ZvB-pO-sai">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
@@ -294,7 +303,16 @@
                             <outlet property="delegate" destination="3Ot-0T-awx" id="rQd-YO-UZg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Pages" id="hSo-QK-vv4"/>
+                    <navigationItem key="navigationItem" title="Pages" id="hSo-QK-vv4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="Gba-M1-D0M">
+                            <connections>
+                                <action selector="searchPagesContent:" destination="3Ot-0T-awx" id="pVL-ed-86A"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pagesSearchBar" destination="gKS-6g-Peg" id="Ktj-v4-198"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V7d-hF-RGy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
