@@ -29,6 +29,9 @@
 		833D18F21C0A25ED0027D604 /* IGPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18F11C0A25ED0027D604 /* IGPageVC.m */; };
 		833D19021C0B05520027D604 /* Page+Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D19011C0B05520027D604 /* Page+Texts.swift */; };
 		833D19051C0B05970027D604 /* TextUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D19041C0B05970027D604 /* TextUtils.swift */; };
+		A10636C21C0B3C0B00F9795D /* Event+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A10636BF1C0B3C0B00F9795D /* Event+CoreDataProperties.m */; };
+		A10636C31C0B3C0B00F9795D /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = A10636C11C0B3C0B00F9795D /* Event.m */; };
+		A10636C51C0B3D7700F9795D /* Event+JsonMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10636C41C0B3D7700F9795D /* Event+JsonMapping.swift */; };
 		A11E27021C09E9C50012312D /* SlimConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27011C09E9C50012312D /* SlimConnectionManager.m */; };
 		A11E270A1C09EE4C0012312D /* IntegreatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27091C09EE4C0012312D /* IntegreatTests.m */; };
 		A11E27131C09F35C0012312D /* IGCityPickerVCCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27121C09F35C0012312D /* IGCityPickerVCCollectionViewController.m */; };
@@ -84,6 +87,11 @@
 		833D18F11C0A25ED0027D604 /* IGPageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGPageVC.m; path = viewcontrollers/IGPageVC.m; sourceTree = "<group>"; };
 		833D19011C0B05520027D604 /* Page+Texts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Page+Texts.swift"; sourceTree = "<group>"; };
 		833D19041C0B05970027D604 /* TextUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextUtils.swift; path = utils/TextUtils.swift; sourceTree = "<group>"; };
+		A10636BE1C0B3C0B00F9795D /* Event+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Event+CoreDataProperties.h"; path = "model/Event+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A10636BF1C0B3C0B00F9795D /* Event+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Event+CoreDataProperties.m"; path = "model/Event+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A10636C01C0B3C0B00F9795D /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = model/Event.h; sourceTree = "<group>"; };
+		A10636C11C0B3C0B00F9795D /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = model/Event.m; sourceTree = "<group>"; };
+		A10636C41C0B3D7700F9795D /* Event+JsonMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event+JsonMapping.swift"; sourceTree = "<group>"; };
 		A11E27001C09E9C50012312D /* SlimConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlimConnectionManager.h; path = connectionManger/SlimConnectionManager.h; sourceTree = "<group>"; };
 		A11E27011C09E9C50012312D /* SlimConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlimConnectionManager.m; path = connectionManger/SlimConnectionManager.m; sourceTree = "<group>"; };
 		A11E27071C09EE4C0012312D /* IntegreatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegreatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,6 +193,11 @@
 		833D186F1C09D8480027D604 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A10636BE1C0B3C0B00F9795D /* Event+CoreDataProperties.h */,
+				A10636BF1C0B3C0B00F9795D /* Event+CoreDataProperties.m */,
+				A10636C01C0B3C0B00F9795D /* Event.h */,
+				A10636C11C0B3C0B00F9795D /* Event.m */,
+				A10636C41C0B3D7700F9795D /* Event+JsonMapping.swift */,
 				833D18701C09D8530027D604 /* Integreat.xcdatamodeld */,
 				833D18B51C09E25A0027D604 /* Language.h */,
 				833D18B61C09E25A0027D604 /* Language.m */,
@@ -344,10 +357,12 @@
 			files = (
 				833D18591C09C85F0027D604 /* AppDelegate.m in Sources */,
 				833D19051C0B05970027D604 /* TextUtils.swift in Sources */,
+				A10636C21C0B3C0B00F9795D /* Event+CoreDataProperties.m in Sources */,
 				833D18CE1C09F74A0027D604 /* Language+JsonMapping.swift in Sources */,
 				833D18D01C09F7560027D604 /* Location+JsonMapping.swift in Sources */,
 				833D18751C09D9780027D604 /* ViewController.m in Sources */,
 				A11E27131C09F35C0012312D /* IGCityPickerVCCollectionViewController.m in Sources */,
+				A10636C31C0B3C0B00F9795D /* Event.m in Sources */,
 				833D18561C09C85F0027D604 /* main.m in Sources */,
 				833D18D21C09F75B0027D604 /* Page+JsonMapping.swift in Sources */,
 				833D18F21C0A25ED0027D604 /* IGPageVC.m in Sources */,
@@ -365,6 +380,7 @@
 				A11E27021C09E9C50012312D /* SlimConnectionManager.m in Sources */,
 				833D18C21C09E25A0027D604 /* Page.m in Sources */,
 				833D18721C09D8530027D604 /* Integreat.xcdatamodeld in Sources */,
+				A10636C51C0B3D7700F9795D /* Event+JsonMapping.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

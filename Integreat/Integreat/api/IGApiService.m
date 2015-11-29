@@ -84,4 +84,27 @@
     }];
 }
 
+- (void)updateEventsForLocation:(nonnull Location *)location
+                      language:(nonnull Language *)language
+{
+    typeof(self) weakSelf = self;
+    [self.connectionManager getEvents:location.resourceName forLanguage:language.resourceName withCompletionHandler:^(NSArray *pagesJson, NSError *error) {
+        if (error != nil || weakSelf == nil){
+            return;
+        }
+        
+        NSArray *events = [Page pagesWithJson:pagesJson inContext:weakSelf.context];
+        for (Event *event in events) {
+            event.location = location;
+            event.language = language;
+        }
+        
+        NSError *saveError = nil;
+        [weakSelf.context save:&saveError];
+        if (saveError != nil) {
+            NSLog(@"Error saving context: %@", saveError);
+        }
+    }];
+}
+
 @end

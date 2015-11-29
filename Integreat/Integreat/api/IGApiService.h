@@ -7,6 +7,8 @@
 typedef void(^FetchLocationsCompletionHandler)( NSArray<Location *> * _Nullable locations,  NSError * _Nullable error);
 typedef void(^FetchLanguagesCompletionHandler)( NSArray<Language *> * _Nullable languages,  NSError * _Nullable error);
 typedef void(^FetchPagesCompletionHandler)( NSArray<Page *> * _Nullable pages, NSError * _Nullable error);
+typedef void(^FetchEventsCompletionHandler)( NSArray<Page *> * _Nullable pages, NSError * _Nullable error);
+
 
 
 @interface IGApiService : NSObject
@@ -24,6 +26,10 @@ typedef void(^FetchPagesCompletionHandler)( NSArray<Page *> * _Nullable pages, N
 
 /// Updates all pages for a specific location and language
 - (void)updatePagesForLocation:(nonnull Location *)location
+                      language:(nonnull Language *)language;
+
+/// Updates all events for a specific location and language
+- (void)updateEventsForLocation:(nonnull Location *)location
                       language:(nonnull Language *)language;
 
 @end
