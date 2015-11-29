@@ -5,5 +5,5 @@
 #import "Language.h"
 #import "Page.h"
 #import "Location.h"
-
+#import "Event.h"
 #import "SlimConnectionManager.h"

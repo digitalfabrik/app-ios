@@ -19,4 +19,5 @@ typedef void(^GetArrayCompletionHandler)(NSArray *resut, NSError *error);
 
 -(void)getLangauges:(NSString*)city withCompletionHandler:(GetArrayCompletionHandler)completion;
 
+-(void)getEvents:(NSString*)location forLanguage:(NSString*)language withCompletionHandler:(GetArrayCompletionHandler)completion;
 @end

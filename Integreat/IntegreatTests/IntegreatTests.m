@@ -35,50 +35,77 @@
     [super tearDown];
 }
 
+//
+//-(void)testLocationsRetrieval
+//{
+//    XCTestExpectation *expectation = [self expectationWithDescription:@"Fetch locations"];
+//    
+//    [self.apiService fetchLocationsWithCompletionHandler:^(NSArray<Location *> * _Nullable locations, NSError * _Nullable error) {
+//        XCTAssert(locations.count > 0);
+//        [expectation fulfill];
+//    }];
+//    
+//    [self waitForExpectationsWithTimeout:5 handler:nil];
+//}
+//
+//-(void)testLanguagesRetrieval
+//{
+//    XCTestExpectation *expectation = [self expectationWithDescription:@"Fetch languages"];
+//    
+//    Location *location = [NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:self.context];
+//    location.resourceName = @"augsburg";
+//    
+//    [self.apiService fetchLanguagesForLocation:location withCompletionHandler:^(NSArray<Language *> * _Nullable languages, NSError * _Nullable error) {
+//        XCTAssert(languages.count > 0);
+//        [expectation fulfill];
+//    }];
+//    
+//    [self waitForExpectationsWithTimeout:5 handler:nil];
+//}
+//
+//-(void)testPagesRetrieval
+//{
+//    XCTestExpectation *expectation = [self expectationWithDescription:@"Fetch pages"];
+//    
+//    Location *location = [NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:self.context];
+//    location.resourceName = @"augsburg";
+//
+//    Language *language = [NSEntityDescription insertNewObjectForEntityForName:@"Language" inManagedObjectContext:self.context];
+//    language.resourceName = @"en";
+//
+//    [self.apiService fetchPagesForLocation:location language:language withCompletionHandler:^(NSArray<Page *> * _Nullable pages, NSError * _Nullable error) {
+//        XCTAssert(pages.count > 0);
+//        [expectation fulfill];
+//    }];
+//    
+//    [self waitForExpectationsWithTimeout:5 handler:nil];
+//}
 
--(void)testLocationsRetrieval
+-(void)testEventsRetrieval
 {
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Fetch locations"];
-    
-    [self.apiService fetchLocationsWithCompletionHandler:^(NSArray<Location *> * _Nullable locations, NSError * _Nullable error) {
-        XCTAssert(locations.count > 0);
-        [expectation fulfill];
+    SlimConnectionManager* conn=[[SlimConnectionManager alloc]init];
+    [conn getEvents:@"augsburg" forLanguage:@"de" withCompletionHandler:^(NSArray *languagesJson, NSError *error) {
+
+        for (NSDictionary *languageJson in languagesJson) {
+            //Language *language = [Language languageWithJson:languageJson inContext:weakSelf.context];
+            //[[language mutableSetValueForKey:@"locations"] addObject:location];
+        }
+        
     }];
-    
-    [self waitForExpectationsWithTimeout:5 handler:nil];
-}
-
--(void)testLanguagesRetrieval
-{
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Fetch languages"];
-    
-    Location *location = [NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:self.context];
-    location.resourceName = @"augsburg";
-    
-    [self.apiService fetchLanguagesForLocation:location withCompletionHandler:^(NSArray<Language *> * _Nullable languages, NSError * _Nullable error) {
-        XCTAssert(languages.count > 0);
-        [expectation fulfill];
-    }];
-    
-    [self waitForExpectationsWithTimeout:5 handler:nil];
-}
-
--(void)testPagesRetrieval
-{
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Fetch pages"];
-    
-    Location *location = [NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:self.context];
-    location.resourceName = @"augsburg";
-
-    Language *language = [NSEntityDescription insertNewObjectForEntityForName:@"Language" inManagedObjectContext:self.context];
-    language.resourceName = @"en";
-
-    [self.apiService fetchPagesForLocation:location language:language withCompletionHandler:^(NSArray<Page *> * _Nullable pages, NSError * _Nullable error) {
-        XCTAssert(pages.count > 0);
-        [expectation fulfill];
-    }];
-    
-    [self waitForExpectationsWithTimeout:5 handler:nil];
+//    XCTestExpectation *expectation = [self expectationWithDescription:@"Fetch pages"];
+//    
+//    Location *location = [NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:self.context];
+//    location.resourceName = @"augsburg";
+//    
+//    Language *language = [NSEntityDescription insertNewObjectForEntityForName:@"Language" inManagedObjectContext:self.context];
+//    language.resourceName = @"en";
+//    
+//    [self.apiService :location language:language withCompletionHandler:^(NSArray<Page *> * _Nullable pages, NSError * _Nullable error) {
+//        XCTAssert(pages.count > 0);
+//        [expectation fulfill];
+//    }];
+//    
+//    [self waitForExpectationsWithTimeout:5 handler:nil];
 }
 
 @end
