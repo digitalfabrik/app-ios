@@ -17,7 +17,13 @@
     
     self.navigationItem.title = self.selectedPage.title;
     
-    [self.webView loadHTMLString:self.selectedPage.content baseURL:nil];
+    
+    NSString *responsive = @"<meta name='viewport' content='width=device-width' />";
+    NSString *styles = @"<style type='text/css'>body {  }</style>";
+    NSString *html = [NSString stringWithFormat:@"<html><head>%@%@</head><body>%@</body></html>",
+                      responsive, styles, self.selectedPage.content];
+    
+    [self.webView loadHTMLString:html baseURL:nil];
 }
 
 @end

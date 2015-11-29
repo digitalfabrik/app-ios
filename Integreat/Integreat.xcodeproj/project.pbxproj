@@ -27,6 +27,8 @@
 		833D18E61C0A17E80027D604 /* IGPagesListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18E51C0A17E80027D604 /* IGPagesListVC.m */; };
 		833D18EF1C0A25E40027D604 /* IGCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18EE1C0A25E40027D604 /* IGCustomTableViewCell.m */; };
 		833D18F21C0A25ED0027D604 /* IGPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18F11C0A25ED0027D604 /* IGPageVC.m */; };
+		833D19021C0B05520027D604 /* Page+Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D19011C0B05520027D604 /* Page+Texts.swift */; };
+		833D19051C0B05970027D604 /* TextUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D19041C0B05970027D604 /* TextUtils.swift */; };
 		A11E27021C09E9C50012312D /* SlimConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27011C09E9C50012312D /* SlimConnectionManager.m */; };
 		A11E270A1C09EE4C0012312D /* IntegreatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27091C09EE4C0012312D /* IntegreatTests.m */; };
 		A11E27131C09F35C0012312D /* IGCityPickerVCCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27121C09F35C0012312D /* IGCityPickerVCCollectionViewController.m */; };
@@ -80,6 +82,8 @@
 		833D18EE1C0A25E40027D604 /* IGCustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGCustomTableViewCell.m; path = viewcontrollers/IGCustomTableViewCell.m; sourceTree = "<group>"; };
 		833D18F01C0A25ED0027D604 /* IGPageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IGPageVC.h; path = viewcontrollers/IGPageVC.h; sourceTree = "<group>"; };
 		833D18F11C0A25ED0027D604 /* IGPageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGPageVC.m; path = viewcontrollers/IGPageVC.m; sourceTree = "<group>"; };
+		833D19011C0B05520027D604 /* Page+Texts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Page+Texts.swift"; sourceTree = "<group>"; };
+		833D19041C0B05970027D604 /* TextUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextUtils.swift; path = utils/TextUtils.swift; sourceTree = "<group>"; };
 		A11E27001C09E9C50012312D /* SlimConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlimConnectionManager.h; path = connectionManger/SlimConnectionManager.h; sourceTree = "<group>"; };
 		A11E27011C09E9C50012312D /* SlimConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlimConnectionManager.m; path = connectionManger/SlimConnectionManager.m; sourceTree = "<group>"; };
 		A11E27071C09EE4C0012312D /* IntegreatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegreatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +140,7 @@
 				A11E26FF1C09E9AF0012312D /* connectionmanager */,
 				833D186F1C09D8480027D604 /* model */,
 				833D186E1C09CD630027D604 /* viewcontrollers */,
+				833D19031C0B055D0027D604 /* utils */,
 				833D18571C09C85F0027D604 /* AppDelegate.h */,
 				833D18581C09C85F0027D604 /* AppDelegate.m */,
 				833D185D1C09C85F0027D604 /* Main.storyboard */,
@@ -191,6 +196,7 @@
 				833D18B71C09E25A0027D604 /* Page+CoreDataProperties.h */,
 				833D18B81C09E25A0027D604 /* Page+CoreDataProperties.m */,
 				833D18D11C09F75B0027D604 /* Page+JsonMapping.swift */,
+				833D19011C0B05520027D604 /* Page+Texts.swift */,
 				833D18BD1C09E25A0027D604 /* Location.h */,
 				833D18BE1C09E25A0027D604 /* Location.m */,
 				833D18BB1C09E25A0027D604 /* Location+CoreDataProperties.h */,
@@ -207,6 +213,14 @@
 				833D18DE1C0A0D8B0027D604 /* IGApiService.m */,
 			);
 			name = api;
+			sourceTree = "<group>";
+		};
+		833D19031C0B055D0027D604 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				833D19041C0B05970027D604 /* TextUtils.swift */,
+			);
+			name = utils;
 			sourceTree = "<group>";
 		};
 		A11E26FF1C09E9AF0012312D /* connectionmanager */ = {
@@ -329,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				833D18591C09C85F0027D604 /* AppDelegate.m in Sources */,
+				833D19051C0B05970027D604 /* TextUtils.swift in Sources */,
 				833D18CE1C09F74A0027D604 /* Language+JsonMapping.swift in Sources */,
 				833D18D01C09F7560027D604 /* Location+JsonMapping.swift in Sources */,
 				833D18751C09D9780027D604 /* ViewController.m in Sources */,
@@ -339,6 +354,7 @@
 				833D18C31C09E25A0027D604 /* Location+CoreDataProperties.m in Sources */,
 				833D18C01C09E25A0027D604 /* Language.m in Sources */,
 				833D18E61C0A17E80027D604 /* IGPagesListVC.m in Sources */,
+				833D19021C0B05520027D604 /* Page+Texts.swift in Sources */,
 				833D18C11C09E25A0027D604 /* Page+CoreDataProperties.m in Sources */,
 				A11E271A1C09FE800012312D /* IGCustomCollectionViewCell.m in Sources */,
 				833D18EF1C0A25E40027D604 /* IGCustomTableViewCell.m in Sources */,

@@ -83,13 +83,7 @@
             completion(nil, nil);
             return;
         }
-        
-        NSMutableArray *pages = [NSMutableArray arrayWithCapacity:pagesJson.count];
-        for (NSDictionary *pageJson in pagesJson) {
-            Page *page = [Page pageWithJson:pageJson inContext:weakSelf.context];
-            [pages addObject:page];
-        }
-        
+        NSArray *pages = [Page pagesWithJson:pagesJson inContext:weakSelf.context];
         completion(pages, nil);
     }];
 }

@@ -3,6 +3,12 @@ import Foundation
 
 extension Page {
     
+    class func pagesWithJson(json: [[String: AnyObject]], inContext context: NSManagedObjectContext) -> [Page] {
+        return json
+            .sort { Int($0["id"] as! String)! < Int($1["id"] as! String)! }
+            .map { pageWithJson($0, inContext: context) }
+    }
+    
     class func pageWithJson(json: [String: AnyObject], inContext context: NSManagedObjectContext) -> Page {
         let identifier = json["id"] as! String
         
@@ -24,6 +30,10 @@ extension Page {
         page.content = json["content"] as? String
         page.title = json["title"] as? String
         page.order = json["order"] as? String
+        page.parentPage = (json["parent"] as? String).flatMap { parentId in
+            if (parentId == "0") { return nil; }
+            return Page.findPageWithIdentifier(parentId, inContext: page.managedObjectContext!)
+        }
     }
     
 }
