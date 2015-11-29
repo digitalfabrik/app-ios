@@ -75,5 +75,22 @@ NSString* serverURL=@"http://vmkrcmar21.informatik.tu-muenchen.de/wordpress";
             }] resume];
 }
 
+-(void)getEvents:(NSString*)location forLanguage:(NSString*)language withCompletionHandler:(GetArrayCompletionHandler)completion
+{
+    NSString* pagesURL=[NSString stringWithFormat:@"%@/%@/%@/wp-json/extensions/v0/modified_content/events?since=2010-11-15T16:39:45%%2B0000",serverURL,location,language];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithURL:[NSURL URLWithString:pagesURL]
+            completionHandler:^(NSData *data,
+                                NSURLResponse *response,
+                                NSError *error) {
+                NSError *parseErr;
+                id pkg=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&parseErr];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completion(pkg, nil);
+                });
+            }] resume];
+}
+
 
 @end
