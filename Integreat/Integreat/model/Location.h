@@ -12,7 +12,7 @@ typedef void(^GetLocationImageCompletionBlock)(UIImage *image);
 
 + (nullable instancetype)findLocationWithIdentifier:(NSString *)identifier inContext:(NSManagedObjectContext *)context;
 
-- (void)getImageWithCompletionHandler:(GetLocationImageCompletionBlock)completion;
+- (void)loadIconImageIfNeeded;
 
 @end
 

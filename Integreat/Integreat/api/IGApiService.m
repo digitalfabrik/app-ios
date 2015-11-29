@@ -22,69 +22,65 @@
 }
 
 
-- (void)fetchLocationsWithCompletionHandler:(FetchLocationsCompletionHandler)completion
+- (void)updateLocations
 {
     typeof(self) weakSelf = self;
     [self.connectionManager getLocationsWithCompletionHandler:^(NSArray *locationsJson, NSError *error) {
-        if (error != nil){
-            completion(nil, error);
+        if (error != nil || weakSelf == nil){
             return;
         }
-        if (weakSelf == nil){
-            completion(nil, nil);
-            return;
+        for (NSDictionary *locationJson in locationsJson) {
+            [Location locationWithJson:locationJson inContext:weakSelf.context];
         }
         
-        NSMutableArray *locations = [NSMutableArray arrayWithCapacity:locationsJson.count];
-        for (NSDictionary *locationJson in locationsJson) {
-            Location *location = [Location locationWithJson:locationJson inContext:weakSelf.context];
-            [locations addObject:location];
+        NSError *saveError = nil;
+        [weakSelf.context save:&saveError];
+        if (saveError != nil) {
+            NSLog(@"Error saving context: %@", saveError);
         }
-                
-        completion(locations, nil);
     }];
 }
 
-- (void)fetchLanguagesForLocation:(Location *)location
-            withCompletionHandler:(FetchLanguagesCompletionHandler)completion
+- (void)upateLanguagesForLocation:(nonnull Location *)location
 {
     typeof(self) weakSelf = self;
     [self.connectionManager getLangauges:location.resourceName withCompletionHandler:^(NSArray *languagesJson, NSError *error) {
-        if (error != nil){
-            completion(nil, error);
+        if (error != nil || weakSelf == nil){
             return;
         }
-        if (weakSelf == nil){
-            completion(nil, nil);
-            return;
-        }
-        
-        NSMutableArray *languages = [NSMutableArray arrayWithCapacity:languagesJson.count];
         for (NSDictionary *languageJson in languagesJson) {
             Language *language = [Language languageWithJson:languageJson inContext:weakSelf.context];
-            [languages addObject:language];
+            [[language mutableSetValueForKey:@"locations"] addObject:location];
         }
         
-        completion(languages, nil);
+        NSError *saveError = nil;
+        [weakSelf.context save:&saveError];
+        if (saveError != nil) {
+            NSLog(@"Error saving context: %@", saveError);
+        }
     }];
 }
 
-- (void)fetchPagesForLocation:(Location *)location
-                     language:(Language *)language
-        withCompletionHandler:(FetchPagesCompletionHandler)completion
+- (void)updatePagesForLocation:(nonnull Location *)location
+                      language:(nonnull Language *)language
 {
     typeof(self) weakSelf = self;
     [self.connectionManager getPages:location.resourceName forLanguage:language.resourceName withCompletionHandler:^(NSArray *pagesJson, NSError *error) {
-        if (error != nil){
-            completion(nil, error);
+        if (error != nil || weakSelf == nil){
             return;
         }
-        if (weakSelf == nil){
-            completion(nil, nil);
-            return;
-        }
+        
         NSArray *pages = [Page pagesWithJson:pagesJson inContext:weakSelf.context];
-        completion(pages, nil);
+        for (Page *page in pages) {
+            page.location = location;
+            page.language = language;
+        }
+        
+        NSError *saveError = nil;
+        [weakSelf.context save:&saveError];
+        if (saveError != nil) {
+            NSLog(@"Error saving context: %@", saveError);
+        }
     }];
 }
 

@@ -48,11 +48,13 @@ NSString* serverURL=@"http://vmkrcmar21.informatik.tu-muenchen.de/wordpress";
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
                                 NSError *error) {
+                if (error != nil){
+                    completion(nil, error);
+                    return;
+                }
                 NSError *parseErr;
                 id pkg = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseErr];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    completion(pkg, nil);
-                });
+                completion(pkg, parseErr);
             }] resume];
 }
 

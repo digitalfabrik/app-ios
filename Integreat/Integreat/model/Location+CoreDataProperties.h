@@ -5,7 +5,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Location (CoreDataProperties)
 
-@property (nonatomic, retain) NSString* identifier;
+@property (nonatomic, retain) NSString *identifier;
 @property (nullable, nonatomic, retain) NSString *resourceName;
 @property (nullable, nonatomic, retain) NSString *name;
 @property (nullable, nonatomic, retain) NSString *color;
@@ -14,8 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) UIImage* iconImage;
 @property (nullable, nonatomic, retain) NSURL *iconImageUrl;
 
-@property (nullable, nonatomic, retain) Language *languages;
-@property (nullable, nonatomic, retain) Page *pages;
+@property (nullable, nonatomic, retain) NSSet<Language *> *languages;
+@property (nullable, nonatomic, retain) NSSet<Page *> *pages;
 
 @end
 

@@ -30,6 +30,7 @@ extension Page {
         page.content = json["content"] as? String
         page.title = json["title"] as? String
         page.order = json["order"] as? String
+        page.lastModified = NSDate() // TODO: use modified_gmt
         page.parentPage = (json["parent"] as? String).flatMap { parentId in
             if (parentId == "0") { return nil; }
             return Page.findPageWithIdentifier(parentId, inContext: page.managedObjectContext!)
