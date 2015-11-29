@@ -49,9 +49,7 @@
     }
     
     [self updatePages];
-    
-    self.tableView.contentOffset = CGPointMake(0.0f, self.pagesSearchBar.frame.size.height);
-    
+        
     self.navigationItem.title = self.selectedLocation.name;
     
     [self.apiService updatePagesForLocation:self.selectedLocation language:self.selectedLanguage];

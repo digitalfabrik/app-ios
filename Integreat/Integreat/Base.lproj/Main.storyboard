@@ -276,7 +276,7 @@
                                 <segue destination="m1L-GY-WDp" kind="presentation" identifier="changeSeg" id="nhh-FB-JuW"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="Gba-M1-D0M">
+                        <barButtonItem key="rightBarButtonItem" title="Events" id="Gba-M1-D0M">
                             <connections>
                                 <action selector="searchPagesContent:" destination="3Ot-0T-awx" id="pVL-ed-86A"/>
                             </connections>
@@ -326,6 +326,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aNK-ph-JBq"/>
+        <segue reference="nhh-FB-JuW"/>
     </inferredMetricsTieBreakers>
 </document>
