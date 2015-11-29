@@ -69,11 +69,16 @@
     Page *page = self.pages[indexPath.item];
     
     NSString *resuseIdentifier = (page.thumbnailImageUrl != nil)
-        ? @"cellWitImage" : @"cellWithoutImage";
-    
-    IGCustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellWithoutImage" forIndexPath:indexPath];
+        ? @"cellWithImage" : @"cellWithoutImage";
+        
+    IGCustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:resuseIdentifier forIndexPath:indexPath];
     cell.cellTitle.attributedText=[page descriptionText];
-    cell.cellImage.image = page.thumbnailImage;
+    
+    if (page.thumbnailImageUrl != nil) {
+        [page loadThumbnailImageWithCompletionHandler:^(UIImage * _Nonnull image) {
+            cell.cellImage.image = image;
+        }];
+    }
     
     return cell;
 }
@@ -161,20 +166,14 @@
 //    return frame.size.height;
 //}
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    Page *page = self.pages[indexPath.item];
-    [page loadThumbnailImageWithCompletionHandler:^(UIImage * _Nonnull image) {
-        ((IGCustomTableViewCell *)cell).imageView.image = image;
-    }];
-}
-
 
 #pragma mark <NSFetchedResultsControllerDelegate>
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-    [self updatePages];
+    if (self.pages.count == 0){
+        [self updatePages];        
+    }
 }
 
 @end

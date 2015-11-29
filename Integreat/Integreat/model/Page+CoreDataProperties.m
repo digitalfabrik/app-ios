@@ -12,6 +12,7 @@
 @dynamic location;
 @dynamic parentPage;
 @dynamic childPages;
+@dynamic order;
 @dynamic thumbnailImageUrl;
 @dynamic thumbnailImage;
 
