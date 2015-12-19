@@ -303,7 +303,7 @@
 				TargetAttributes = {
 					833D18501C09C85F0027D604 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = ZU2R4J9D54;
+						DevelopmentTeam = PH38W3J7U5;
 					};
 					A11E27061C09EE4C0012312D = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -513,7 +513,7 @@
 				INFOPLIST_FILE = Integreat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tuerantuer.app.Integreat;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.integreat-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Integreat/Integreat-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -529,7 +529,7 @@
 				INFOPLIST_FILE = Integreat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tuerantuer.app.Integreat;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.integreat-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Integreat/Integreat-Bridging-Header.h";
 			};
