@@ -7,7 +7,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Page : NSManagedObject
 
-+ (nullable instancetype)findPageWithIdentifier:(NSString *)identifier inContext:(NSManagedObjectContext *)context;
++ (nullable instancetype)findPageWithIdentifier:(NSNumber *)identifier inContext:(NSManagedObjectContext *)context;
 
 - (void)loadThumbnailImageWithCompletionHandler:(void(^)(UIImage *image))completion;
 

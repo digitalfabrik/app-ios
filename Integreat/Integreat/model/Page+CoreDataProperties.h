@@ -5,7 +5,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Page (CoreDataProperties)
 
-@property (nonatomic, retain) NSString* identifier;
+@property (nonatomic, retain) NSNumber *identifier;
 @property (nullable, nonatomic, retain) NSString *excerpt;
 @property (nullable, nonatomic, retain) NSString *content;
 @property (nullable, nonatomic, retain) NSString *title;

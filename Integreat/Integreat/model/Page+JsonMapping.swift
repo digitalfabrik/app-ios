@@ -5,12 +5,14 @@ extension Page {
     
     class func pagesWithJson(json: [[String: AnyObject]], inContext context: NSManagedObjectContext) -> [Page] {
         return json
-            .sort { Int($0["id"] as! String)! < Int($1["id"] as! String)! }
+            .sort {
+                ($0["id"] as? Int) ?? Int.max < ($1["id"] as? Int) ?? Int.max
+            }
             .map { pageWithJson($0, inContext: context) }
     }
     
     class func pageWithJson(json: [String: AnyObject], inContext context: NSManagedObjectContext) -> Page {
-        let identifier = json["id"] as! String
+        let identifier = (json["id"] as? Int) ?? 0
         
         if let page = Page.findPageWithIdentifier(identifier, inContext: context) {
             updatePage(page, withJson: json)
@@ -32,8 +34,8 @@ extension Page {
         page.order = json["order"] as? String
         page.thumbnailImageUrl = (json["thumbnail"] as? String).flatMap(NSURL.init)
         page.lastModified = NSDate() // TODO: use modified_gmt
-        page.parentPage = (json["parent"] as? String).flatMap { parentId in
-            if (parentId == "0") { return nil; }
+        page.parentPage = (json["parent"] as? Int).flatMap { parentId in
+            if (parentId == 0) { return nil; }
             return Page.findPageWithIdentifier(parentId, inContext: page.managedObjectContext!)
         }
     }
