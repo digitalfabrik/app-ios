@@ -9,6 +9,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *excerpt;
 @property (nullable, nonatomic, retain) NSString *content;
 @property (nullable, nonatomic, retain) NSString *title;
+@property (nullable, nonatomic, retain) NSString *status; // usually "publish" or "trash"
 @property (nullable, nonatomic, retain) NSDate *lastModified;
 @property (nullable, nonatomic, retain) NSString *order;
 @property (nullable, nonatomic, retain) NSURL *thumbnailImageUrl;

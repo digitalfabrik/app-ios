@@ -31,8 +31,8 @@
     }
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Page"];
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"language == %@ AND location == %@",
-                              self.selectedLanguage, self.selectedLocation];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"language == %@ AND location == %@ AND status == %@",
+                              self.selectedLanguage, self.selectedLocation, @"publish"];
     fetchRequest.sortDescriptors = @[
         [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:NO]
     ];

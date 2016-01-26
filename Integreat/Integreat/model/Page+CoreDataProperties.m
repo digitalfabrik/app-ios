@@ -7,6 +7,7 @@
 @dynamic content;
 @dynamic identifier;
 @dynamic title;
+@dynamic status;
 @dynamic lastModified;
 @dynamic language;
 @dynamic location;

@@ -31,6 +31,7 @@ extension Page {
         page.excerpt = json["excerpt"] as? String
         page.content = json["content"] as? String
         page.title = json["title"] as? String
+        page.status = json["status"] as? String
         page.order = json["order"] as? String
         page.thumbnailImageUrl = (json["thumbnail"] as? String).flatMap(NSURL.init)
         page.lastModified = NSDate() // TODO: use modified_gmt
