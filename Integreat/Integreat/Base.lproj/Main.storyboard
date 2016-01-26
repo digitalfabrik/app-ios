@@ -236,7 +236,6 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cellTitle" destination="BMk-XC-2Zm" id="SHz-4z-Ggu"/>
-                                    <segue destination="dFc-Bz-d5h" kind="show" identifier="segPage" id="OdX-WT-zEK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -260,6 +259,7 @@
                     <connections>
                         <outlet property="pagesSearchBar" destination="gKS-6g-Peg" id="Ktj-v4-198"/>
                         <segue destination="m1L-GY-WDp" kind="presentation" identifier="changeSegWithoutAnimation" animates="NO" id="aNK-ph-JBq"/>
+                        <segue destination="dFc-Bz-d5h" kind="show" identifier="segPage" id="gDp-cW-MJB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V7d-hF-RGy" userLabel="First Responder" sceneMemberID="firstResponder"/>

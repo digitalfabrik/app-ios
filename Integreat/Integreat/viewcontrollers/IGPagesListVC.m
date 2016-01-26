@@ -156,6 +156,12 @@
 
 #pragma mark Table View Delegate
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"segPage" sender:cell];
+}
+
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 //{
 //    Page *page = self.pages[indexPath.item];
