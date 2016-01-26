@@ -10,6 +10,9 @@
 #import "IGCustomCollectionViewCell.h"
 #import "IGPagesListVC.h"
 
+NSString *IGLanguagePickedNotification = @"IGLanguagePickedNotification";
+
+
 @interface IGLanguagePickerVC () <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedLanguages;
@@ -41,13 +44,19 @@ static NSString * const reuseIdentifier = @"Cell";
     if (fetchError != nil){
         NSLog(@"Error fetching locations: %@", fetchError);
     }
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
+    
+    [self updateNavigationItem];
     
     [self.apiService upateLanguagesForLocation:self.selectedLocation];
+}
+
+- (void)updateNavigationItem
+{
+    if (self.fetchedLanguages.fetchedObjects.count == 0){
+        self.navigationItem.title = @"Loading...";
+    } else {
+        self.navigationItem.title = @"Language";
+    }
 }
 
 
@@ -89,7 +98,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [[NSUserDefaults standardUserDefaults] setObject:self.selectedLocation.identifier forKey:@"location"];
     [[NSUserDefaults standardUserDefaults] setObject:language.identifier forKey:@"language"];
     
-    [self dismissViewControllerAnimated:true completion:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:IGLanguagePickedNotification object:nil];
 }
 
 
@@ -134,6 +143,8 @@ static NSString * const reuseIdentifier = @"Cell";
         }
     } completion:nil];
     self.changes = nil;
+    
+    [self updateNavigationItem];
 }
 
 @end

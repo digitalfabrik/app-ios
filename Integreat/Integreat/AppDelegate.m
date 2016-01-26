@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "IGApiService.h"
 #import "IGPagesListVC.h"
+#import "Integreat-Swift.h"
 
 @interface AppDelegate ()
 
@@ -24,9 +25,8 @@
     
     self.apiService = [[IGApiService alloc] initWithContext:self.managedObjectContext];
     
-    UINavigationController *navigationController = (id)self.window.rootViewController;
-    IGPagesListVC *pagesListVC = (id)navigationController.topViewController;
-    pagesListVC.apiService = self.apiService;
+    RootNavigationController *rootNC = (id)self.window.rootViewController;
+    rootNC.apiService = self.apiService;
     
     return YES;
 }

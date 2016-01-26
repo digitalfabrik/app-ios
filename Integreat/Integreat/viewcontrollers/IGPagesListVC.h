@@ -9,6 +9,7 @@
 @property (strong, nonatomic) IGApiService *apiService;
 @property (strong, nonatomic) Location *selectedLocation;
 @property (strong, nonatomic) Language *selectedLanguage;
+@property (nonatomic) Page *parentPage;
 
 @property (strong, nonatomic) IBOutlet UISearchBar *pagesSearchBar;
 

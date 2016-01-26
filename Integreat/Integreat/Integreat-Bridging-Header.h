@@ -7,3 +7,7 @@
 #import "Location.h"
 #import "Event.h"
 #import "SlimConnectionManager.h"
+#import "IGApiService.h"
+#import "IGPagesListVC.h"
+#import "IGCityPickerVCCollectionViewController.h"
+#import "IGLanguagePickerVC.h"

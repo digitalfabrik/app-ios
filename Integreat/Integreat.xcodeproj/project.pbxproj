@@ -29,6 +29,7 @@
 		833D18F21C0A25ED0027D604 /* IGPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18F11C0A25ED0027D604 /* IGPageVC.m */; };
 		833D19021C0B05520027D604 /* Page+Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D19011C0B05520027D604 /* Page+Texts.swift */; };
 		833D19051C0B05970027D604 /* TextUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D19041C0B05970027D604 /* TextUtils.swift */; };
+		83BF8D001C58299F00A8F40C /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BF8CFF1C58299F00A8F40C /* RootNavigationController.swift */; };
 		A10636C21C0B3C0B00F9795D /* Event+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A10636BF1C0B3C0B00F9795D /* Event+CoreDataProperties.m */; };
 		A10636C31C0B3C0B00F9795D /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = A10636C11C0B3C0B00F9795D /* Event.m */; };
 		A10636C51C0B3D7700F9795D /* Event+JsonMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10636C41C0B3D7700F9795D /* Event+JsonMapping.swift */; };
@@ -87,6 +88,7 @@
 		833D18F11C0A25ED0027D604 /* IGPageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGPageVC.m; path = viewcontrollers/IGPageVC.m; sourceTree = "<group>"; };
 		833D19011C0B05520027D604 /* Page+Texts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Page+Texts.swift"; sourceTree = "<group>"; };
 		833D19041C0B05970027D604 /* TextUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextUtils.swift; path = utils/TextUtils.swift; sourceTree = "<group>"; };
+		83BF8CFF1C58299F00A8F40C /* RootNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		A10636BE1C0B3C0B00F9795D /* Event+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Event+CoreDataProperties.h"; path = "model/Event+CoreDataProperties.h"; sourceTree = "<group>"; };
 		A10636BF1C0B3C0B00F9795D /* Event+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Event+CoreDataProperties.m"; path = "model/Event+CoreDataProperties.m"; sourceTree = "<group>"; };
 		A10636C01C0B3C0B00F9795D /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = model/Event.h; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				A11E27181C09F6510012312D /* IGCustomCollectionViewCell.m */,
 				833D18ED1C0A25E40027D604 /* IGCustomTableViewCell.h */,
 				833D18EE1C0A25E40027D604 /* IGCustomTableViewCell.m */,
+				83BF8CFF1C58299F00A8F40C /* RootNavigationController.swift */,
 			);
 			name = viewcontrollers;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				833D18EF1C0A25E40027D604 /* IGCustomTableViewCell.m in Sources */,
 				833D18C41C09E25A0027D604 /* Location.m in Sources */,
 				A11E27161C09F3D90012312D /* IGLanguagePickerVC.m in Sources */,
+				83BF8D001C58299F00A8F40C /* RootNavigationController.swift in Sources */,
 				833D18BF1C09E25A0027D604 /* Language+CoreDataProperties.m in Sources */,
 				833D18DF1C0A0D8B0027D604 /* IGApiService.m in Sources */,
 				A11E27021C09E9C50012312D /* SlimConnectionManager.m in Sources */,

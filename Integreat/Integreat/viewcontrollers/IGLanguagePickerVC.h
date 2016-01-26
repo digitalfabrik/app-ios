@@ -10,6 +10,8 @@
 #import "IGApiService.h"
 #import "Location.h"
 
+extern NSString *IGLanguagePickedNotification;
+
 @interface IGLanguagePickerVC : UICollectionViewController <UICollectionViewDelegateFlowLayout>
 @property (strong, nonatomic) IGApiService *apiService;
 @property (nonatomic) Location* selectedLocation;

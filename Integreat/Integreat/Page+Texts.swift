@@ -1,7 +1,7 @@
 extension Page {
     
     @objc
-    var descriptionText: NSAttributedString {
+    func descriptionTextIncludingExcerpt(shouldIncludeExcerpt: Bool) -> NSAttributedString {
         let text = NSMutableAttributedString()
         
         let style = NSMutableParagraphStyle()
@@ -23,14 +23,14 @@ extension Page {
             text.setAttributes(attributes, range: range)
         }
         
-        if title != nil && excerpt != nil {
+        if title != nil && excerpt != nil && shouldIncludeExcerpt {
             text.appendAttributedString(NSAttributedString(string: "\n", attributes: [
                 NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleBody),
                 NSForegroundColorAttributeName: UIColor(white: 0, alpha: 0)
             ]))
         }
         
-        if let excerpt = excerpt, attributedExcerpt = TextUtils.attributedStringWithHtml(excerpt) {
+        if let excerpt = excerpt, attributedExcerpt = TextUtils.attributedStringWithHtml(excerpt) where shouldIncludeExcerpt {
             let range = NSMakeRange(text.length, attributedExcerpt.length)
             text.appendAttributedString(attributedExcerpt)
             let attributes = [

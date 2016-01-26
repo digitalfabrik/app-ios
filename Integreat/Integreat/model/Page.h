@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)loadThumbnailImageWithCompletionHandler:(void(^)(UIImage *image))completion;
 
+- (NSSet<Page *> *)publishedChildPages;
+
 @end
 
 

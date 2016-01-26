@@ -39,4 +39,15 @@
     });
 }
 
+- (NSSet<Page *> *)publishedChildPages
+{
+    NSMutableSet *publishedChildPages = [NSMutableSet setWithCapacity:self.childPages.count];
+    for (Page *childPage in self.childPages){
+        if ([childPage.status isEqualToString:@"publish"]){
+            [publishedChildPages addObject:childPage];
+        }
+    }
+    return publishedChildPages;
+}
+
 @end

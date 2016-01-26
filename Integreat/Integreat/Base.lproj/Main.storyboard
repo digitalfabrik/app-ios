@@ -9,7 +9,7 @@
         <!--Cities-->
         <scene sceneID="Hlb-eN-7lQ">
             <objects>
-                <collectionViewController id="tww-nI-W7K" customClass="IGCityPickerVCCollectionViewController" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="CityPickerVC" id="tww-nI-W7K" customClass="IGCityPickerVCCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="SnP-ht-wzK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,10 +63,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Cities" id="0WY-9Q-naX"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kwR-a3-TRa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1694" y="1082"/>
+            <point key="canvasLocation" x="966" y="1098"/>
         </scene>
         <!--Language-->
         <scene sceneID="U8i-DA-9il">
@@ -126,7 +127,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xl5-Ku-4zD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2391" y="1082"/>
+            <point key="canvasLocation" x="1663" y="1098"/>
         </scene>
         <!--PageVC-->
         <scene sceneID="x5L-AK-Gds">
@@ -164,7 +165,7 @@
         <!--Pages-->
         <scene sceneID="7uL-E9-SwJ">
             <objects>
-                <tableViewController id="3Ot-0T-awx" customClass="IGPagesListVC" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PagesListVC" id="3Ot-0T-awx" customClass="IGPagesListVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZaT-pl-JiN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -247,18 +248,14 @@
                     <navigationItem key="navigationItem" title="Pages" id="hSo-QK-vv4">
                         <barButtonItem key="leftBarButtonItem" title="Change" id="HyV-iG-xYT">
                             <connections>
-                                <segue destination="m1L-GY-WDp" kind="presentation" identifier="changeSeg" id="nhh-FB-JuW"/>
+                                <action selector="showCityPicker:" destination="V7d-hF-RGy" id="EUe-I5-6PU"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Events" id="Gba-M1-D0M">
-                            <connections>
-                                <action selector="searchPagesContent:" destination="3Ot-0T-awx" id="pVL-ed-86A"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Events" id="Gba-M1-D0M"/>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="pagesSearchBar" destination="gKS-6g-Peg" id="Ktj-v4-198"/>
-                        <segue destination="m1L-GY-WDp" kind="presentation" identifier="changeSegWithoutAnimation" animates="NO" id="aNK-ph-JBq"/>
                         <segue destination="dFc-Bz-d5h" kind="show" identifier="segPage" id="gDp-cW-MJB"/>
                     </connections>
                 </tableViewController>
@@ -266,40 +263,18 @@
             </objects>
             <point key="canvasLocation" x="944" y="1860"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="kXN-zm-aU7">
-            <objects>
-                <navigationController id="m1L-GY-WDp" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QUe-rT-0AD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="tww-nI-W7K" kind="relationship" relationship="rootViewController" id="jfv-H0-dYh"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5kS-pg-OMD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="988" y="1089"/>
-        </scene>
-        <!--Navigation Controller-->
+        <!--Root Navigation Controller-->
         <scene sceneID="APQ-4p-DUD">
             <objects>
-                <navigationController id="ZXe-q7-n39" sceneMemberID="viewController">
+                <navigationController id="ZXe-q7-n39" customClass="RootNavigationController" customModule="Integreat" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hwD-US-PtK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="3Ot-0T-awx" kind="relationship" relationship="rootViewController" id="8eS-ut-kcA"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cu8-2v-zV8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="176" y="1860"/>
+            <point key="canvasLocation" x="184" y="1276"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="nhh-FB-JuW"/>
-    </inferredMetricsTieBreakers>
 </document>
