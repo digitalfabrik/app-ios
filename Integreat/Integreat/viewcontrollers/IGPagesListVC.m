@@ -22,7 +22,9 @@
     
     [self updateNavigationItem];
     
-    [self.apiService updatePagesForLocation:self.selectedLocation language:self.selectedLanguage];
+    if (self.parentPage == nil){
+        [self.apiService updatePagesForLocation:self.selectedLocation language:self.selectedLanguage];
+    }
     
     self.pagesDataSource = [[PagesDataSource alloc] init];
     self.pagesDataSource.parentPage = self.parentPage;
