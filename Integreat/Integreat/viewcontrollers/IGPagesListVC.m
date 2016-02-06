@@ -1,27 +1,41 @@
 #import "IGPagesListVC.h"
-#import "IGCustomTableViewCell.h"
 #import "IGPageVC.h"
 #import "Integreat-Swift.h"
 #import "IGCityPickerVCCollectionViewController.h"
+#import "PagesDataSource.h"
+#import "PagesSearchDataSource.h"
 
-@interface IGPagesListVC() <NSFetchedResultsControllerDelegate>
-    @property (strong,nonatomic) NSArray *pages;
-    @property (strong, nonatomic) NSFetchedResultsController *fetchedPages;
+@interface IGPagesListVC() <UISearchDisplayDelegate>
+
+@property (strong, nonatomic) PagesDataSource *pagesDataSource;
+@property (strong, nonatomic) PagesSearchDataSource *pagesSearchDataSource;
+
 @end
 
 
 @implementation IGPagesListVC
 
+#pragma mark Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self updatePages];
-        
     [self updateNavigationItem];
     
     [self.apiService updatePagesForLocation:self.selectedLocation language:self.selectedLanguage];
     
-    self.tableView.contentOffset = CGPointMake(0.0f, CGRectGetHeight(self.pagesSearchBar.bounds));
+    self.pagesDataSource = [[PagesDataSource alloc] init];
+    self.pagesDataSource.parentPage = self.parentPage;
+    self.pagesDataSource.context = self.apiService.context;
+    self.pagesDataSource.selectedLanguage = self.selectedLanguage;
+    self.pagesDataSource.selectedLocation = self.selectedLocation;
+    self.pagesDataSource.tableViewToUpdate = self.tableView;
+    [self.pagesDataSource prepareTableView:self.tableView];
+    self.tableView.dataSource = self.pagesDataSource;
+    
+    if (self.parentPage != nil){
+        self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
+    }
 }
 
 - (void)updateNavigationItem
@@ -30,81 +44,15 @@
         self.navigationItem.leftBarButtonItem = nil;
         self.navigationItem.title = self.parentPage.title;
         self.navigationItem.rightBarButtonItem = nil;
-    } else if (self.fetchedPages.fetchedObjects.count == 0) {
+    } else if (self.pagesDataSource.isLoading) {
         self.navigationItem.title = @"Loading...";
     } else {
         self.navigationItem.title = self.selectedLocation.name;
     }
 }
 
-- (NSFetchedResultsController *)fetchedPages
-{
-    if (_fetchedPages != nil){
-        return _fetchedPages;
-    }
-    
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Page"];
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"language == %@ AND location == %@ AND status == %@ AND parentPage = %@",
-                              self.selectedLanguage, self.selectedLocation, @"publish", self.parentPage];
-    fetchRequest.sortDescriptors = @[
-                                     [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:NO]
-                                     ];
-    _fetchedPages = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-                                                            managedObjectContext:self.apiService.context
-                                                              sectionNameKeyPath:nil
-                                                                       cacheName:nil];
-    _fetchedPages.delegate = self;
-    
-    NSError *fetchError = nil;
-    [_fetchedPages performFetch:&fetchError];
-    if (fetchError != nil){
-        NSLog(@"Error fetching locations: %@", fetchError);
-    }
-    
-    return _fetchedPages;
-}
 
-- (Page *)pageForRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch(indexPath.section){
-        case 0: return self.parentPage;
-        case 1: return self.pages[indexPath.item];
-        default: return nil;
-    }
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 2;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    switch(section){
-        case 0: return (self.parentPage != nil) ? 1 : 0;
-        case 1: return self.pages.count;
-        default: return 0;
-    }
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Page *page = [self pageForRowAtIndexPath:indexPath];
-    
-    NSString *resuseIdentifier = (page.thumbnailImageUrl != nil)
-        ? @"cellWithImage" : @"cellWithoutImage";
-        
-    IGCustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:resuseIdentifier forIndexPath:indexPath];
-    cell.cellTitle.attributedText= [page descriptionTextIncludingExcerpt:self.parentPage != nil];
-    
-    if (page.thumbnailImageUrl != nil) {
-        [page loadThumbnailImageWithCompletionHandler:^(UIImage * _Nonnull image) {
-            cell.cellImage.image = image;
-        }];
-    } else {
-        cell.cellImage.image = nil;
-    }
-    
-    return cell;
-}
+#pragma mark Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -112,7 +60,7 @@
     
     if ([segue.identifier isEqualToString:@"segPage"]){
         IGPageVC *pageVC = segue.destinationViewController;
-        pageVC.selectedPage = [self pageForRowAtIndexPath:[self.tableView indexPathForCell:sender]];
+        pageVC.selectedPage = [self pageForCell:sender];
     }
     else if ([segue.identifier isEqualToString:@"changeSeg"] || [segue.identifier isEqualToString:@"changeSegWithoutAnimation"]){
         UINavigationController *nc = segue.destinationViewController;
@@ -122,52 +70,33 @@
 }
 
 
-#pragma mark Data
-
-- (void)updatePages
-{
-    if (self.pagesSearchBar.text.length > 0){
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.content contains[c] %@ OR SELF.title contains[c] %@",
-                                  self.pagesSearchBar.text, self.pagesSearchBar.text];
-        self.pages = [self.fetchedPages.fetchedObjects filteredArrayUsingPredicate:predicate];
-    }
-    else {
-        self.pages = self.fetchedPages.fetchedObjects;
-    }
-    
-    [self.tableView reloadData];
-}
-
-
-#pragma mark Search
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
-    self.pagesSearchBar.text = nil;
-    
-    CGPoint offset = CGPointMake(0.0f, CGRectGetHeight(self.pagesSearchBar.bounds));
-    [self.tableView setContentOffset:offset animated:YES];
-    
-    [self updatePages];
-}
-
-
-#pragma mark - UISearchDisplayController Delegate Methods
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText;
-{
-    [self updatePages];
-}
-
 #pragma mark Table View Delegate
+
+- (Page *)pageForRowAtIndexPath:(NSIndexPath *)indexPath inTableView:(UITableView *)tableView
+{
+    if (tableView == self.tableView){
+        return [self.pagesDataSource pageForRowAtIndexPath:indexPath];
+    } else if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [self.pagesDataSource pageForRowAtIndexPath:indexPath];
+    } else {
+        return nil;
+    }
+}
+
+- (Page *)pageForCell:(UITableViewCell *)cell
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    if (indexPath != nil){
+        return [self.pagesDataSource pageForRowAtIndexPath:indexPath];
+    } else {
+        indexPath = [self.searchDisplayController.searchResultsTableView indexPathForCell:cell];
+        return [self.pagesDataSource pageForRowAtIndexPath:indexPath];
+    }
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Page *page = [self pageForRowAtIndexPath:indexPath];
+    Page *page = [self pageForRowAtIndexPath:indexPath inTableView:tableView];
     
     if (page != self.parentPage && page.publishedChildPages.count > 0){
         IGPagesListVC *pagesListVC = [self.storyboard instantiateViewControllerWithIdentifier:@"PagesListVC"];
@@ -205,14 +134,26 @@
 //}
 
 
-#pragma mark <NSFetchedResultsControllerDelegate>
+#pragma mark <UISearchDisplayDelegate>
 
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+- (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView
 {
-    if (self.pages.count == 0){
-        [self updateNavigationItem];
-        [self updatePages];
-    }
+    self.pagesSearchDataSource = [[PagesSearchDataSource alloc] init];
+    self.pagesSearchDataSource.context = self.apiService.context;
+    [self.pagesSearchDataSource prepareTableView:tableView];
+    tableView.dataSource = self.pagesSearchDataSource;
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self.pagesSearchDataSource updateSearchedPagesWithQuery:searchString];
+    return true;
+}
+
+- (void)searchDisplayController:(UISearchDisplayController *)controller willUnloadSearchResultsTableView:(UITableView *)tableView
+{
+    tableView.dataSource = nil;
+    self.pagesSearchDataSource = nil;
 }
 
 @end

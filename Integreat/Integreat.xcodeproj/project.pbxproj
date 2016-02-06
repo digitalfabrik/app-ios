@@ -29,6 +29,9 @@
 		833D18F21C0A25ED0027D604 /* IGPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D18F11C0A25ED0027D604 /* IGPageVC.m */; };
 		833D19021C0B05520027D604 /* Page+Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D19011C0B05520027D604 /* Page+Texts.swift */; };
 		833D19051C0B05970027D604 /* TextUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D19041C0B05970027D604 /* TextUtils.swift */; };
+		836CEA1B1C6570C00079F167 /* PagesSearchDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 836CEA1A1C6570C00079F167 /* PagesSearchDataSource.m */; };
+		836CEA1E1C6570CE0079F167 /* PagesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 836CEA1D1C6570CE0079F167 /* PagesDataSource.m */; };
+		83A7BE7B1C656BF4000FDE3E /* PageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83A7BE7A1C656BF4000FDE3E /* PageCell.xib */; };
 		83BF8D001C58299F00A8F40C /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BF8CFF1C58299F00A8F40C /* RootNavigationController.swift */; };
 		A10636C21C0B3C0B00F9795D /* Event+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A10636BF1C0B3C0B00F9795D /* Event+CoreDataProperties.m */; };
 		A10636C31C0B3C0B00F9795D /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = A10636C11C0B3C0B00F9795D /* Event.m */; };
@@ -88,6 +91,11 @@
 		833D18F11C0A25ED0027D604 /* IGPageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGPageVC.m; path = viewcontrollers/IGPageVC.m; sourceTree = "<group>"; };
 		833D19011C0B05520027D604 /* Page+Texts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Page+Texts.swift"; sourceTree = "<group>"; };
 		833D19041C0B05970027D604 /* TextUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextUtils.swift; path = utils/TextUtils.swift; sourceTree = "<group>"; };
+		836CEA191C6570C00079F167 /* PagesSearchDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagesSearchDataSource.h; sourceTree = "<group>"; };
+		836CEA1A1C6570C00079F167 /* PagesSearchDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagesSearchDataSource.m; sourceTree = "<group>"; };
+		836CEA1C1C6570CE0079F167 /* PagesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagesDataSource.h; sourceTree = "<group>"; };
+		836CEA1D1C6570CE0079F167 /* PagesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagesDataSource.m; sourceTree = "<group>"; };
+		83A7BE7A1C656BF4000FDE3E /* PageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageCell.xib; sourceTree = "<group>"; };
 		83BF8CFF1C58299F00A8F40C /* RootNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		A10636BE1C0B3C0B00F9795D /* Event+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Event+CoreDataProperties.h"; path = "model/Event+CoreDataProperties.h"; sourceTree = "<group>"; };
 		A10636BF1C0B3C0B00F9795D /* Event+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Event+CoreDataProperties.m"; path = "model/Event+CoreDataProperties.m"; sourceTree = "<group>"; };
@@ -154,6 +162,7 @@
 				833D18571C09C85F0027D604 /* AppDelegate.h */,
 				833D18581C09C85F0027D604 /* AppDelegate.m */,
 				833D185D1C09C85F0027D604 /* Main.storyboard */,
+				83A7BE7A1C656BF4000FDE3E /* PageCell.xib */,
 				833D18631C09C85F0027D604 /* Assets.xcassets */,
 				833D18651C09C85F0027D604 /* LaunchScreen.storyboard */,
 				833D18681C09C85F0027D604 /* Info.plist */,
@@ -174,6 +183,7 @@
 		833D186E1C09CD630027D604 /* viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
+				836CEA141C6570900079F167 /* datasources */,
 				A11E27111C09F35C0012312D /* IGCityPickerVCCollectionViewController.h */,
 				A11E27121C09F35C0012312D /* IGCityPickerVCCollectionViewController.m */,
 				833D18731C09D9780027D604 /* ViewController.h */,
@@ -237,6 +247,17 @@
 				833D19041C0B05970027D604 /* TextUtils.swift */,
 			);
 			name = utils;
+			sourceTree = "<group>";
+		};
+		836CEA141C6570900079F167 /* datasources */ = {
+			isa = PBXGroup;
+			children = (
+				836CEA1C1C6570CE0079F167 /* PagesDataSource.h */,
+				836CEA1D1C6570CE0079F167 /* PagesDataSource.m */,
+				836CEA191C6570C00079F167 /* PagesSearchDataSource.h */,
+				836CEA1A1C6570C00079F167 /* PagesSearchDataSource.m */,
+			);
+			name = datasources;
 			sourceTree = "<group>";
 		};
 		A11E26FF1C09E9AF0012312D /* connectionmanager */ = {
@@ -340,6 +361,7 @@
 			files = (
 				833D18671C09C85F0027D604 /* LaunchScreen.storyboard in Resources */,
 				833D18641C09C85F0027D604 /* Assets.xcassets in Resources */,
+				83A7BE7B1C656BF4000FDE3E /* PageCell.xib in Resources */,
 				833D185F1C09C85F0027D604 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,8 +381,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				833D18591C09C85F0027D604 /* AppDelegate.m in Sources */,
+				836CEA1E1C6570CE0079F167 /* PagesDataSource.m in Sources */,
 				833D19051C0B05970027D604 /* TextUtils.swift in Sources */,
 				A10636C21C0B3C0B00F9795D /* Event+CoreDataProperties.m in Sources */,
+				836CEA1B1C6570C00079F167 /* PagesSearchDataSource.m in Sources */,
 				833D18CE1C09F74A0027D604 /* Language+JsonMapping.swift in Sources */,
 				833D18D01C09F7560027D604 /* Location+JsonMapping.swift in Sources */,
 				833D18751C09D9780027D604 /* ViewController.m in Sources */,
