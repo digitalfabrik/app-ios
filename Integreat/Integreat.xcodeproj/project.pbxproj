@@ -31,6 +31,8 @@
 		833D19051C0B05970027D604 /* TextUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D19041C0B05970027D604 /* TextUtils.swift */; };
 		836CEA1B1C6570C00079F167 /* PagesSearchDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 836CEA1A1C6570C00079F167 /* PagesSearchDataSource.m */; };
 		836CEA1E1C6570CE0079F167 /* PagesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 836CEA1D1C6570CE0079F167 /* PagesDataSource.m */; };
+		836CEA261C66113B0079F167 /* IntegreatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836CEA251C66113B0079F167 /* IntegreatUITests.swift */; };
+		836CEA2E1C6611BC0079F167 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836CEA2D1C6611BC0079F167 /* SnapshotHelper.swift */; };
 		83A7BE7B1C656BF4000FDE3E /* PageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83A7BE7A1C656BF4000FDE3E /* PageCell.xib */; };
 		83BF8D001C58299F00A8F40C /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BF8CFF1C58299F00A8F40C /* RootNavigationController.swift */; };
 		A10636C21C0B3C0B00F9795D /* Event+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A10636BF1C0B3C0B00F9795D /* Event+CoreDataProperties.m */; };
@@ -44,6 +46,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		836CEA281C66113B0079F167 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 833D18491C09C85F0027D604 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 833D18501C09C85F0027D604;
+			remoteInfo = Integreat;
+		};
 		A11E270C1C09EE4C0012312D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 833D18491C09C85F0027D604 /* Project object */;
@@ -95,6 +104,10 @@
 		836CEA1A1C6570C00079F167 /* PagesSearchDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagesSearchDataSource.m; sourceTree = "<group>"; };
 		836CEA1C1C6570CE0079F167 /* PagesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagesDataSource.h; sourceTree = "<group>"; };
 		836CEA1D1C6570CE0079F167 /* PagesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagesDataSource.m; sourceTree = "<group>"; };
+		836CEA231C66113B0079F167 /* IntegreatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegreatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		836CEA251C66113B0079F167 /* IntegreatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegreatUITests.swift; sourceTree = "<group>"; };
+		836CEA271C66113B0079F167 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		836CEA2D1C6611BC0079F167 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = ../../SnapshotHelper.swift; sourceTree = "<group>"; };
 		83A7BE7A1C656BF4000FDE3E /* PageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageCell.xib; sourceTree = "<group>"; };
 		83BF8CFF1C58299F00A8F40C /* RootNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		A10636BE1C0B3C0B00F9795D /* Event+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Event+CoreDataProperties.h"; path = "model/Event+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -123,6 +136,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		836CEA201C66113B0079F167 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A11E27041C09EE4C0012312D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -138,6 +158,7 @@
 			children = (
 				833D18531C09C85F0027D604 /* Integreat */,
 				A11E27081C09EE4C0012312D /* IntegreatTests */,
+				836CEA241C66113B0079F167 /* IntegreatUITests */,
 				833D18521C09C85F0027D604 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -147,6 +168,7 @@
 			children = (
 				833D18511C09C85F0027D604 /* Integreat.app */,
 				A11E27071C09EE4C0012312D /* IntegreatTests.xctest */,
+				836CEA231C66113B0079F167 /* IntegreatUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -260,6 +282,16 @@
 			name = datasources;
 			sourceTree = "<group>";
 		};
+		836CEA241C66113B0079F167 /* IntegreatUITests */ = {
+			isa = PBXGroup;
+			children = (
+				836CEA2D1C6611BC0079F167 /* SnapshotHelper.swift */,
+				836CEA251C66113B0079F167 /* IntegreatUITests.swift */,
+				836CEA271C66113B0079F167 /* Info.plist */,
+			);
+			path = IntegreatUITests;
+			sourceTree = "<group>";
+		};
 		A11E26FF1C09E9AF0012312D /* connectionmanager */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +330,24 @@
 			productReference = 833D18511C09C85F0027D604 /* Integreat.app */;
 			productType = "com.apple.product-type.application";
 		};
+		836CEA221C66113B0079F167 /* IntegreatUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 836CEA2A1C66113C0079F167 /* Build configuration list for PBXNativeTarget "IntegreatUITests" */;
+			buildPhases = (
+				836CEA1F1C66113B0079F167 /* Sources */,
+				836CEA201C66113B0079F167 /* Frameworks */,
+				836CEA211C66113B0079F167 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				836CEA291C66113B0079F167 /* PBXTargetDependency */,
+			);
+			name = IntegreatUITests;
+			productName = IntegreatUITests;
+			productReference = 836CEA231C66113B0079F167 /* IntegreatUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		A11E27061C09EE4C0012312D /* IntegreatTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A11E27101C09EE4C0012312D /* Build configuration list for PBXNativeTarget "IntegreatTests" */;
@@ -322,12 +372,17 @@
 		833D18491C09C85F0027D604 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = Integreat;
 				TargetAttributes = {
 					833D18501C09C85F0027D604 = {
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = PH38W3J7U5;
+					};
+					836CEA221C66113B0079F167 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 833D18501C09C85F0027D604;
 					};
 					A11E27061C09EE4C0012312D = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -350,6 +405,7 @@
 			targets = (
 				833D18501C09C85F0027D604 /* Integreat */,
 				A11E27061C09EE4C0012312D /* IntegreatTests */,
+				836CEA221C66113B0079F167 /* IntegreatUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -363,6 +419,13 @@
 				833D18641C09C85F0027D604 /* Assets.xcassets in Resources */,
 				83A7BE7B1C656BF4000FDE3E /* PageCell.xib in Resources */,
 				833D185F1C09C85F0027D604 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		836CEA211C66113B0079F167 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +475,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		836CEA1F1C66113B0079F167 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				836CEA261C66113B0079F167 /* IntegreatUITests.swift in Sources */,
+				836CEA2E1C6611BC0079F167 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A11E27031C09EE4C0012312D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -423,6 +495,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		836CEA291C66113B0079F167 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 833D18501C09C85F0027D604 /* Integreat */;
+			targetProxy = 836CEA281C66113B0079F167 /* PBXContainerItemProxy */;
+		};
 		A11E270D1C09EE4C0012312D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 833D18501C09C85F0027D604 /* Integreat */;
@@ -567,6 +644,34 @@
 			};
 			name = Release;
 		};
+		836CEA2B1C66113C0079F167 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = IntegreatUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.apprience.IntegreatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_TARGET_NAME = Integreat;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		836CEA2C1C66113C0079F167 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = IntegreatUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.apprience.IntegreatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Integreat;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
 		A11E270E1C09EE4C0012312D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -611,6 +716,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		836CEA2A1C66113C0079F167 /* Build configuration list for PBXNativeTarget "IntegreatUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				836CEA2B1C66113C0079F167 /* Debug */,
+				836CEA2C1C66113C0079F167 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		A11E27101C09EE4C0012312D /* Build configuration list for PBXNativeTarget "IntegreatTests" */ = {
 			isa = XCConfigurationList;
