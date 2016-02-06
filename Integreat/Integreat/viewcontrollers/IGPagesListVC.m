@@ -44,8 +44,6 @@
         self.navigationItem.leftBarButtonItem = nil;
         self.navigationItem.title = self.parentPage.title;
         self.navigationItem.rightBarButtonItem = nil;
-    } else if (self.pagesDataSource.isLoading) {
-        self.navigationItem.title = @"Loading...";
     } else {
         self.navigationItem.title = self.selectedLocation.name;
     }
@@ -120,18 +118,6 @@
         return 80.0f;
     }
 }
-
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    Page *page = [self pageForRowAtIndexPath:indexPath];
-//    NSAttributedString *text = [page descriptionTextIncludingExcerpt:self.parentPage != nil];
-//    
-//    CGRect frame = [text boundingRectWithSize:CGSizeMake(tableView.bounds.size.width, CGFLOAT_MAX)
-//                                      options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
-//                                      context:nil];
-//    
-//    return MAX(frame.size.height, 80.0f);
-//}
 
 
 #pragma mark <UISearchDisplayDelegate>

@@ -32,14 +32,13 @@
 		836CEA1B1C6570C00079F167 /* PagesSearchDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 836CEA1A1C6570C00079F167 /* PagesSearchDataSource.m */; };
 		836CEA1E1C6570CE0079F167 /* PagesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 836CEA1D1C6570CE0079F167 /* PagesDataSource.m */; };
 		836CEA261C66113B0079F167 /* IntegreatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836CEA251C66113B0079F167 /* IntegreatUITests.swift */; };
-		836CEA2E1C6611BC0079F167 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836CEA2D1C6611BC0079F167 /* SnapshotHelper.swift */; };
 		83A7BE7B1C656BF4000FDE3E /* PageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83A7BE7A1C656BF4000FDE3E /* PageCell.xib */; };
 		83BF8D001C58299F00A8F40C /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BF8CFF1C58299F00A8F40C /* RootNavigationController.swift */; };
+		83F65E371C662FC200F7B87E /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F65E361C662FC200F7B87E /* SnapshotHelper.swift */; };
 		A10636C21C0B3C0B00F9795D /* Event+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A10636BF1C0B3C0B00F9795D /* Event+CoreDataProperties.m */; };
 		A10636C31C0B3C0B00F9795D /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = A10636C11C0B3C0B00F9795D /* Event.m */; };
 		A10636C51C0B3D7700F9795D /* Event+JsonMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10636C41C0B3D7700F9795D /* Event+JsonMapping.swift */; };
 		A11E27021C09E9C50012312D /* SlimConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27011C09E9C50012312D /* SlimConnectionManager.m */; };
-		A11E270A1C09EE4C0012312D /* IntegreatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27091C09EE4C0012312D /* IntegreatTests.m */; };
 		A11E27131C09F35C0012312D /* IGCityPickerVCCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27121C09F35C0012312D /* IGCityPickerVCCollectionViewController.m */; };
 		A11E27161C09F3D90012312D /* IGLanguagePickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27151C09F3D90012312D /* IGLanguagePickerVC.m */; };
 		A11E271A1C09FE800012312D /* IGCustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A11E27181C09F6510012312D /* IGCustomCollectionViewCell.m */; };
@@ -47,13 +46,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		836CEA281C66113B0079F167 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 833D18491C09C85F0027D604 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 833D18501C09C85F0027D604;
-			remoteInfo = Integreat;
-		};
-		A11E270C1C09EE4C0012312D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 833D18491C09C85F0027D604 /* Project object */;
 			proxyType = 1;
@@ -107,9 +99,9 @@
 		836CEA231C66113B0079F167 /* IntegreatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegreatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		836CEA251C66113B0079F167 /* IntegreatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegreatUITests.swift; sourceTree = "<group>"; };
 		836CEA271C66113B0079F167 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		836CEA2D1C6611BC0079F167 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = ../../SnapshotHelper.swift; sourceTree = "<group>"; };
 		83A7BE7A1C656BF4000FDE3E /* PageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageCell.xib; sourceTree = "<group>"; };
 		83BF8CFF1C58299F00A8F40C /* RootNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
+		83F65E361C662FC200F7B87E /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		A10636BE1C0B3C0B00F9795D /* Event+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Event+CoreDataProperties.h"; path = "model/Event+CoreDataProperties.h"; sourceTree = "<group>"; };
 		A10636BF1C0B3C0B00F9795D /* Event+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Event+CoreDataProperties.m"; path = "model/Event+CoreDataProperties.m"; sourceTree = "<group>"; };
 		A10636C01C0B3C0B00F9795D /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = model/Event.h; sourceTree = "<group>"; };
@@ -117,9 +109,6 @@
 		A10636C41C0B3D7700F9795D /* Event+JsonMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event+JsonMapping.swift"; sourceTree = "<group>"; };
 		A11E27001C09E9C50012312D /* SlimConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlimConnectionManager.h; path = connectionManger/SlimConnectionManager.h; sourceTree = "<group>"; };
 		A11E27011C09E9C50012312D /* SlimConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlimConnectionManager.m; path = connectionManger/SlimConnectionManager.m; sourceTree = "<group>"; };
-		A11E27071C09EE4C0012312D /* IntegreatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegreatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A11E27091C09EE4C0012312D /* IntegreatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntegreatTests.m; sourceTree = "<group>"; };
-		A11E270B1C09EE4C0012312D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A11E27111C09F35C0012312D /* IGCityPickerVCCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IGCityPickerVCCollectionViewController.h; path = viewcontrollers/IGCityPickerVCCollectionViewController.h; sourceTree = "<group>"; };
 		A11E27121C09F35C0012312D /* IGCityPickerVCCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGCityPickerVCCollectionViewController.m; path = viewcontrollers/IGCityPickerVCCollectionViewController.m; sourceTree = "<group>"; };
 		A11E27141C09F3D90012312D /* IGLanguagePickerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IGLanguagePickerVC.h; path = viewcontrollers/IGLanguagePickerVC.h; sourceTree = "<group>"; };
@@ -143,13 +132,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A11E27041C09EE4C0012312D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -157,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				833D18531C09C85F0027D604 /* Integreat */,
-				A11E27081C09EE4C0012312D /* IntegreatTests */,
 				836CEA241C66113B0079F167 /* IntegreatUITests */,
 				833D18521C09C85F0027D604 /* Products */,
 			);
@@ -167,7 +148,6 @@
 			isa = PBXGroup;
 			children = (
 				833D18511C09C85F0027D604 /* Integreat.app */,
-				A11E27071C09EE4C0012312D /* IntegreatTests.xctest */,
 				836CEA231C66113B0079F167 /* IntegreatUITests.xctest */,
 			);
 			name = Products;
@@ -285,7 +265,7 @@
 		836CEA241C66113B0079F167 /* IntegreatUITests */ = {
 			isa = PBXGroup;
 			children = (
-				836CEA2D1C6611BC0079F167 /* SnapshotHelper.swift */,
+				83F65E361C662FC200F7B87E /* SnapshotHelper.swift */,
 				836CEA251C66113B0079F167 /* IntegreatUITests.swift */,
 				836CEA271C66113B0079F167 /* Info.plist */,
 			);
@@ -299,15 +279,6 @@
 				A11E27011C09E9C50012312D /* SlimConnectionManager.m */,
 			);
 			name = connectionmanager;
-			sourceTree = "<group>";
-		};
-		A11E27081C09EE4C0012312D /* IntegreatTests */ = {
-			isa = PBXGroup;
-			children = (
-				A11E27091C09EE4C0012312D /* IntegreatTests.m */,
-				A11E270B1C09EE4C0012312D /* Info.plist */,
-			);
-			path = IntegreatTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,24 +319,6 @@
 			productReference = 836CEA231C66113B0079F167 /* IntegreatUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		A11E27061C09EE4C0012312D /* IntegreatTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A11E27101C09EE4C0012312D /* Build configuration list for PBXNativeTarget "IntegreatTests" */;
-			buildPhases = (
-				A11E27031C09EE4C0012312D /* Sources */,
-				A11E27041C09EE4C0012312D /* Frameworks */,
-				A11E27051C09EE4C0012312D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A11E270D1C09EE4C0012312D /* PBXTargetDependency */,
-			);
-			name = IntegreatTests;
-			productName = IntegreatTests;
-			productReference = A11E27071C09EE4C0012312D /* IntegreatTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -384,10 +337,6 @@
 						CreatedOnToolsVersion = 7.2;
 						TestTargetID = 833D18501C09C85F0027D604;
 					};
-					A11E27061C09EE4C0012312D = {
-						CreatedOnToolsVersion = 7.1.1;
-						TestTargetID = 833D18501C09C85F0027D604;
-					};
 				};
 			};
 			buildConfigurationList = 833D184C1C09C85F0027D604 /* Build configuration list for PBXProject "Integreat" */;
@@ -404,7 +353,6 @@
 			projectRoot = "";
 			targets = (
 				833D18501C09C85F0027D604 /* Integreat */,
-				A11E27061C09EE4C0012312D /* IntegreatTests */,
 				836CEA221C66113B0079F167 /* IntegreatUITests */,
 			);
 		};
@@ -423,13 +371,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		836CEA211C66113B0079F167 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A11E27051C09EE4C0012312D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -480,15 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				836CEA261C66113B0079F167 /* IntegreatUITests.swift in Sources */,
-				836CEA2E1C6611BC0079F167 /* SnapshotHelper.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A11E27031C09EE4C0012312D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A11E270A1C09EE4C0012312D /* IntegreatTests.m in Sources */,
+				83F65E371C662FC200F7B87E /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,11 +432,6 @@
 			isa = PBXTargetDependency;
 			target = 833D18501C09C85F0027D604 /* Integreat */;
 			targetProxy = 836CEA281C66113B0079F167 /* PBXContainerItemProxy */;
-		};
-		A11E270D1C09EE4C0012312D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 833D18501C09C85F0027D604 /* Integreat */;
-			targetProxy = A11E270C1C09EE4C0012312D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -672,30 +600,6 @@
 			};
 			name = Release;
 		};
-		A11E270E1C09EE4C0012312D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = IntegreatTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tuerantuer.app.IntegreatTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Integreat.app/Integreat";
-			};
-			name = Debug;
-		};
-		A11E270F1C09EE4C0012312D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = IntegreatTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tuerantuer.app.IntegreatTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Integreat.app/Integreat";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -722,14 +626,6 @@
 			buildConfigurations = (
 				836CEA2B1C66113C0079F167 /* Debug */,
 				836CEA2C1C66113C0079F167 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		A11E27101C09EE4C0012312D /* Build configuration list for PBXNativeTarget "IntegreatTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A11E270E1C09EE4C0012312D /* Debug */,
-				A11E270F1C09EE4C0012312D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

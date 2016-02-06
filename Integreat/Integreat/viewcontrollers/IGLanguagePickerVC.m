@@ -81,6 +81,8 @@ static NSString * const reuseIdentifier = @"Cell";
     cell.cellTitle.text = language.nativeName;
     cell.cellImage.image = language.iconImage;
 
+    cell.accessibilityIdentifier = language.nativeName;
+    
     return cell;
 }
 

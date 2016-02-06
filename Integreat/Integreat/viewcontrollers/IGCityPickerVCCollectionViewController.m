@@ -92,6 +92,8 @@ static NSString * const reuseIdentifier = @"Cell";
     [location loadIconImageIfNeeded];
     cell.cellImage.image = location.iconImage;
     
+    cell.accessibilityIdentifier = location.name;
+    
     return cell;
 }
 

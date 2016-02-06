@@ -24,8 +24,12 @@
 
 - (void)updateLocations
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
     typeof(self) weakSelf = self;
     [self.connectionManager getLocationsWithCompletionHandler:^(NSArray *locationsJson, NSError *error) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        
         if (error != nil || weakSelf == nil){
             return;
         }
@@ -43,8 +47,12 @@
 
 - (void)upateLanguagesForLocation:(nonnull Location *)location
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
     typeof(self) weakSelf = self;
     [self.connectionManager getLangauges:location.resourceName withCompletionHandler:^(NSArray *languagesJson, NSError *error) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        
         if (error != nil || weakSelf == nil){
             return;
         }
@@ -64,8 +72,12 @@
 - (void)updatePagesForLocation:(nonnull Location *)location
                       language:(nonnull Language *)language
 {
-    typeof(self) weakSelf = self;
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+
+   typeof(self) weakSelf = self;
     [self.connectionManager getPages:location.resourceName forLanguage:language.resourceName withCompletionHandler:^(NSArray *pagesJson, NSError *error) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        
         if (error != nil || weakSelf == nil){
             return;
         }
@@ -85,8 +97,12 @@
 - (void)updateEventsForLocation:(nonnull Location *)location
                       language:(nonnull Language *)language
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
     typeof(self) weakSelf = self;
     [self.connectionManager getEvents:location.resourceName forLanguage:language.resourceName withCompletionHandler:^(NSArray *pagesJson, NSError *error) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        
         if (error != nil || weakSelf == nil){
             return;
         }
