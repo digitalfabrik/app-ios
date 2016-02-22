@@ -5,7 +5,7 @@
 #import "PagesDataSource.h"
 #import "PagesSearchDataSource.h"
 
-@interface IGPagesListVC() <UISearchDisplayDelegate>
+@interface IGPagesListVC() <UISearchDisplayDelegate, PagesDataSourceDelegate>
 
 @property (strong, nonatomic) PagesDataSource *pagesDataSource;
 @property (strong, nonatomic) PagesSearchDataSource *pagesSearchDataSource;
@@ -31,7 +31,7 @@
     self.pagesDataSource.context = self.apiService.context;
     self.pagesDataSource.selectedLanguage = self.selectedLanguage;
     self.pagesDataSource.selectedLocation = self.selectedLocation;
-    self.pagesDataSource.tableViewToUpdate = self.tableView;
+    self.pagesDataSource.delegate = self;
     [self.pagesDataSource prepareTableView:self.tableView];
     self.tableView.dataSource = self.pagesDataSource;
     
@@ -46,6 +46,8 @@
         self.navigationItem.leftBarButtonItem = nil;
         self.navigationItem.title = self.parentPage.title;
         self.navigationItem.rightBarButtonItem = nil;
+    } else if (self.pagesDataSource.isLoading){
+        self.navigationItem.title = @"Loading...";
     } else {
         self.navigationItem.title = self.selectedLocation.name;
     }
@@ -128,6 +130,8 @@
 {
     self.pagesSearchDataSource = [[PagesSearchDataSource alloc] init];
     self.pagesSearchDataSource.context = self.apiService.context;
+    self.pagesSearchDataSource.selectedLanguage = self.selectedLanguage;
+    self.pagesSearchDataSource.selectedLocation = self.selectedLocation;
     [self.pagesSearchDataSource prepareTableView:tableView];
     tableView.dataSource = self.pagesSearchDataSource;
 }
@@ -142,6 +146,19 @@
 {
     tableView.dataSource = nil;
     self.pagesSearchDataSource = nil;
+}
+
+
+#pragma mark <PagesDataSourceDelegate>
+
+- (void)pagesDataSourceDidChange:(PagesDataSource *)pagesDataSource
+{
+    [self updateNavigationItem];
+}
+
+- (UITableView *)tableViewToUpdateForPagesDataSource:(PagesDataSource *)pagesDataSource
+{
+    return self.tableView;
 }
 
 @end

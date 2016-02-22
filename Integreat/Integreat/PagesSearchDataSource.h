@@ -6,6 +6,8 @@
 @interface PagesSearchDataSource : NSObject <UITableViewDataSource>
 
 @property (strong, nonatomic) NSManagedObjectContext *context;
+@property (strong, nonatomic) Location *selectedLocation;
+@property (strong, nonatomic) Language *selectedLanguage;
 
 - (Page *)pageForRowAtIndexPath:(NSIndexPath *)indexPath;
 

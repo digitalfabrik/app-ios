@@ -5,6 +5,7 @@
 @interface PagesDataSource () <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedPages;
+@property (nonatomic) BOOL shouldReload;
 
 @end
 
@@ -26,7 +27,8 @@
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"language == %@ AND location == %@ AND status == %@ AND parentPage = %@",
                               self.selectedLanguage, self.selectedLocation, @"publish", self.parentPage];
     fetchRequest.sortDescriptors = @[
-        [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:NO]
+         [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:NO],
+         [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:NO]
     ];
     _fetchedPages = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                                         managedObjectContext:self.context
@@ -75,6 +77,7 @@
     NSString *resuseIdentifier = @"PageCell";
     
     IGCustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:resuseIdentifier forIndexPath:indexPath];
+    cell.cellTitle.text = nil;
     cell.cellTitle.attributedText = [page descriptionTextIncludingExcerpt:self.parentPage != nil];
     
     if (page.thumbnailImageUrl != nil) {
@@ -94,37 +97,32 @@
 
 #pragma mark <NSFetchedResultsControllerDelegate>
 
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
-{
-    [self.tableViewToUpdate beginUpdates];
-}
-
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
 {
     switch(type){
         case NSFetchedResultsChangeDelete:
-            indexPath = [NSIndexPath indexPathForItem:indexPath.item inSection:1];
-            [self.tableViewToUpdate deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationFade];
-            break;
         case NSFetchedResultsChangeInsert:
-            newIndexPath = [NSIndexPath indexPathForItem:newIndexPath.item inSection:1];
-            [self.tableViewToUpdate insertRowsAtIndexPaths:@[ newIndexPath ] withRowAnimation:UITableViewRowAnimationFade];
-            break;
         case NSFetchedResultsChangeMove:
-            indexPath = [NSIndexPath indexPathForItem:indexPath.item inSection:1];
-            newIndexPath = [NSIndexPath indexPathForItem:newIndexPath.item inSection:1];
-            [self.tableViewToUpdate moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
+            self.shouldReload = YES;
             break;
         case NSFetchedResultsChangeUpdate:
-            indexPath = [NSIndexPath indexPathForItem:indexPath.item inSection:1];
-            [self.tableViewToUpdate reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationFade];
             break;
     }
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-    [self.tableViewToUpdate endUpdates];
+    if (!self.shouldReload){
+        return;
+    }
+    
+    UITableView *tableView = [self.delegate tableViewToUpdateForPagesDataSource:self];
+    [tableView reloadSections:[NSIndexSet indexSetWithIndex:1]
+             withRowAnimation:UITableViewRowAnimationNone];
+    
+    self.shouldReload = NO;
+    
+    [self.delegate pagesDataSourceDidChange:self];
 }
 
 - (BOOL)isLoading

@@ -42,6 +42,8 @@ static NSString * const reuseIdentifier = @"Cell";
     if (fetchError != nil){
         NSLog(@"Error fetching locations: %@", fetchError);
     }
+    
+    [self updateNavigationItem];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -53,6 +55,15 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 #pragma mark - Navigation
+
+- (void)updateNavigationItem
+{
+    if (self.fetchedLocations.fetchedObjects.count == 0){
+        self.navigationItem.title = @"Loading...";
+    } else {
+        self.navigationItem.title = @"Cities";
+    }
+}
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -148,6 +159,8 @@ static NSString * const reuseIdentifier = @"Cell";
         }
     } completion:nil];
     self.changes = nil;
+    
+    [self updateNavigationItem];
 }
 
 @end

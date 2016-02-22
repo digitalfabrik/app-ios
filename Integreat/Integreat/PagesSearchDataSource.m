@@ -24,8 +24,11 @@
     }
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Page"];
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"SELF.content contains[c] %@ OR SELF.title contains[c] %@",
-                              query, query];
+    fetchRequest.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[
+       [NSPredicate predicateWithFormat:@"language == %@ AND location == %@", self.selectedLanguage, self.selectedLocation],
+       [NSPredicate predicateWithFormat:@"status == %@", @"publish"],
+       [NSPredicate predicateWithFormat:@"SELF.content contains[c] %@ OR SELF.title contains[c] %@", query, query]
+    ]];
     fetchRequest.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES] ];
     
     NSError *error = nil;
