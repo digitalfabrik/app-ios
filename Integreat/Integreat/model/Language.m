@@ -2,8 +2,16 @@
 #import "Location.h"
 #import "Page.h"
 
+@interface Language ()
+
+@property (nonatomic, getter=isLoadingImage) BOOL loadingImage;
+
+@end
+
 
 @implementation Language
+
+@synthesize loadingImage = _loadingImage;
 
 + (nullable instancetype)findLanguageWithIdentifier:(NSString *)identifier inContext:(NSManagedObjectContext *)context
 {
@@ -24,9 +32,11 @@
 
 - (void)loadIconImageIfNeeded
 {
-    if (self.iconImage != nil){
+    if (self.iconImageUrl == nil || self.iconImage != nil || self.isLoadingImage){
         return;
     }
+    self.loadingImage = YES;
+    
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
     dispatch_async(queue, ^{
         NSData *data = [[NSData alloc] initWithContentsOfURL:self.iconImageUrl];
