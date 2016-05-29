@@ -84,10 +84,18 @@
     }
     
     // Create the coordinator and store
+    NSError *error = nil;
     
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Integreat.v1.sqlite"];
-    NSError *error = nil;
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Integreat.sqlite"];
+    
+    NSDictionary *sourceMetadata = [NSPersistentStoreCoordinator metadataForPersistentStoreOfType:nil
+                                                                                              URL:storeURL
+                                                                                            error:&error];
+    if (![[self managedObjectModel] isConfiguration:nil compatibleWithStoreMetadata:sourceMetadata]){
+        [[NSFileManager defaultManager] removeItemAtURL:storeURL error:&error];
+    }
+    
     NSString *failureReason = @"There was an error creating or loading the application's saved data.";
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
         // Report any error we got.
