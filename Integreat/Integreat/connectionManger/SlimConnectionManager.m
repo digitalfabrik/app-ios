@@ -9,10 +9,8 @@
 #import "SlimConnectionManager.h"
 
 
-
 @implementation SlimConnectionManager
 NSString* serverURL=@"http://vmkrcmar21.informatik.tu-muenchen.de/wordpress";
-//http://vmkrcmar21.informatik.tu-muenchen.de/wordpress
 
 -(id)init {
     if ( self = [super init] ) {
@@ -24,7 +22,7 @@ NSString* serverURL=@"http://vmkrcmar21.informatik.tu-muenchen.de/wordpress";
 -(void)getPages:(NSString*)location forLanguage:(NSString*)language withCompletionHandler:(GetArrayCompletionHandler)completion
 {
     //TODO: change since
-    NSString* pagesURL=[NSString stringWithFormat:@"%@/%@/%@/wp-json/extensions/v0/modified_content/pages?since=2010-11-15T16:39:45%%2B0000",serverURL,location,language];
+    NSString* pagesURL=[NSString stringWithFormat:@"%@/%@/%@/wp-json/extensions/v1/modified_content/pages?since=2010-11-15T16:39:45%%2B0000",serverURL,location,language];
 
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithURL:[NSURL URLWithString:pagesURL]
@@ -41,7 +39,7 @@ NSString* serverURL=@"http://vmkrcmar21.informatik.tu-muenchen.de/wordpress";
 
 -(void)getLocationsWithCompletionHandler:(GetArrayCompletionHandler)completion
 {
-    NSString* pagesURL=[NSString stringWithFormat:@"%@/wp-json/extensions/v0/multisites/",serverURL];
+    NSString* pagesURL=[NSString stringWithFormat:@"%@/wp-json/extensions/v1/multisites/",serverURL];
     
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithURL:[NSURL URLWithString:pagesURL]
@@ -60,7 +58,7 @@ NSString* serverURL=@"http://vmkrcmar21.informatik.tu-muenchen.de/wordpress";
 
 -(void)getLangauges:(NSString*)city withCompletionHandler:(GetArrayCompletionHandler)completion
 {
-    NSString* pagesURL=[NSString stringWithFormat:@"%@/%@/de/wp-json/extensions/v0/languages/wpml",serverURL,city];
+    NSString* pagesURL=[NSString stringWithFormat:@"%@/%@/de/wp-json/extensions/v1/languages/wpml",serverURL,city];
     
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithURL:[NSURL URLWithString:pagesURL]
@@ -77,7 +75,7 @@ NSString* serverURL=@"http://vmkrcmar21.informatik.tu-muenchen.de/wordpress";
 
 -(void)getEvents:(NSString*)location forLanguage:(NSString*)language withCompletionHandler:(GetArrayCompletionHandler)completion
 {
-    NSString* pagesURL=[NSString stringWithFormat:@"%@/%@/%@/wp-json/extensions/v0/modified_content/events?since=2010-11-15T16:39:45%%2B0000",serverURL,location,language];
+    NSString* pagesURL=[NSString stringWithFormat:@"%@/%@/%@/wp-json/extensions/v1/modified_content/events?since=2010-11-15T16:39:45%%2B0000",serverURL,location,language];
     
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithURL:[NSURL URLWithString:pagesURL]
