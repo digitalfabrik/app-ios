@@ -34,7 +34,12 @@
             return;
         }
         for (NSDictionary *locationJson in locationsJson) {
-            [Location locationWithJson:locationJson inContext:weakSelf.context];
+            if (((NSNumber *)locationJson[@"live"]).boolValue == YES){
+                [Location locationWithJson:locationJson inContext:weakSelf.context];
+            } else {
+                NSString *identifier = locationJson[@"id"];
+                [Location deleteLocationWithIdentifier:identifier inContext:weakSelf.context];
+            }
         }
         
         NSError *saveError = nil;

@@ -29,6 +29,13 @@
     return fetchResult.firstObject;
 }
 
++ (void)deleteLocationWithIdentifier:(NSString *)identifier inContext:(NSManagedObjectContext *)context
+{
+    Location *location = [self findLocationWithIdentifier:identifier inContext:context];
+    if (location){
+        [context deleteObject:location];
+    }
+}
 
 - (void)loadIconImageIfNeeded
 {

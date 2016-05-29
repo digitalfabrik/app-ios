@@ -11,6 +11,7 @@ typedef void(^GetLocationImageCompletionBlock)(UIImage *image);
 @interface Location : NSManagedObject
 
 + (nullable instancetype)findLocationWithIdentifier:(NSString *)identifier inContext:(NSManagedObjectContext *)context;
++ (void)deleteLocationWithIdentifier:(NSString *)identifier inContext:(NSManagedObjectContext *)context;
 
 - (void)loadIconImageIfNeeded;
 

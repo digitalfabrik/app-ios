@@ -9,8 +9,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *resourceName;
 @property (nullable, nonatomic, retain) NSString *name;
 @property (nullable, nonatomic, retain) NSString *color;
-@property (nullable, nonatomic, retain) UIImage *coverImage;
-@property (nullable, nonatomic, retain) NSURL *coverImageUrl;
 @property (nullable, nonatomic, retain) UIImage* iconImage;
 @property (nullable, nonatomic, retain) NSURL *iconImageUrl;
 

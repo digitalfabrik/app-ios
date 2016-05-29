@@ -14,8 +14,6 @@
 @implementation Location (CoreDataProperties)
 
 @dynamic color;
-@dynamic coverImage;
-@dynamic coverImageUrl;
 @dynamic iconImage;
 @dynamic iconImageUrl;
 @dynamic identifier;
